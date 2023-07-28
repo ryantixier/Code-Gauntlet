@@ -31,6 +31,10 @@ const challengeSchema = new Schema({
     type: String,
     required: true,
   },
+  level: {
+    type: String,
+    required: true,
+  },
   submissions: [submission],
 });
 
