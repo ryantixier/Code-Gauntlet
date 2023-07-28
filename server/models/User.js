@@ -5,7 +5,6 @@ const userSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
   },
   email: {
@@ -17,7 +16,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5, //determine extra
+    minlength: 5, //extra validations?
   },
 });
 
