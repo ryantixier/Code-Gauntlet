@@ -2,24 +2,29 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
-    name: String
-    email: String
-    password: String
+    _id: ID!
+    name: String!
+    email: String!
+    password: String!
   }
 
   type Challenge {
-    question: String
-    codeAnswer: String
-    status: String
+    question: String!
+    questionRepoLink: String!
+    submissions: Submission
+  }
+
+  type Submission {
+    submitter: User!
+    responseRepoLink: String!
+    response: String
     votes: [Vote]
   }
 
   type Vote {
-    challenge: Challenge
     uniqueness: Boolean
     preference: String
-    voter: User
+    voter: User!
   }
 
   type Auth {
@@ -29,7 +34,6 @@ const typeDefs = gql`
 
   type Query {
     user(userId: ID!): User
-
     challenges: [Challenge]!
     challenge(challengeId: ID!): Challenge
   }
