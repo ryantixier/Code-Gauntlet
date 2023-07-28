@@ -8,14 +8,31 @@ const typeDefs = gql`
     password: String
   }
 
+  type Challenge {
+    question: String
+    codeAnswer: String
+    status: String
+    votes: [Vote]
+  }
+
+  type Vote {
+    challenge: Challenge
+    uniqueness: Boolean
+    preference: String
+    voter: User
+  }
+
   type Auth {
     token: ID!
-    User: User
+    user: User
   }
 
   type Query {
     users: [User]!
     user(userId: ID!): User
+
+    challenges: [Challenge]!
+    challenge(challengeId: ID!): Challenge
   }
 
   type Mutation {
