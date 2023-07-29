@@ -1,9 +1,14 @@
-import react, {useState} from 'react';
+import React, {useState} from 'react';
 
 
 export default function MainPage(){
-    const [name, email, password, setName] = useState("Gauntlet");
-    const handleChange = () => ();
+    const [name,setName] = useState("Gauntlet");
+    const [email, setEmail]= useState('');
+    const [password, setPassword]= useState('');
+
+    const handleChange = (e) => {
+        
+    };
     return(
 <div> 
     <h1>Code Gauntlet</h1>
@@ -15,14 +20,17 @@ export default function MainPage(){
 </div>
 <div>
     <form>
-        {/* input for sign up? */}
-<input value-={setName, email, password} onChange={handleChange}/> 
+        {/* input for sign up? */} 
+<input value-={setName} onChange={(e)=> setName(e.target.value)} />
+<input value={setEmail} onChange={(e)=> setEmail(e.target.value)} />
+<input value={setPassword} onChange={(e) => setPassword(e.target.value)} />
 </form>
 </div>
 <div>
 <form>
         {/* input for login? */}
-<input value-={name, password} onChange={handleChange}/> 
+<input value-={name} onChange={(e)=> setName(e.target.value)}/> 
+<input value-={password} onChange={(e)=> setPassword(e.target.value)}/> 
 </form>
 </div>
 <div>About:Benefits to signing up, basic layout of challenges, etc</div>
