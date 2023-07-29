@@ -1,0 +1,37 @@
+import react, {useState} from 'react';
+
+
+export default function MainPage(){
+    const [name, email, password, setName] = useState("Gauntlet");
+    const handleChange = () => ();
+    return(
+<div> 
+    <h1>Code Gauntlet</h1>
+<div>
+    <img>Logo?</img>
+    <div>
+        <p>Code Gauntlet is a free interactive space to not only challenge your coding skills but your friends as well. Sign up to take full advantage of our features</p>
+    </div>
+</div>
+<div>
+    <form>
+        {/* input for sign up? */}
+<input value-={setName, email, password} onChange={handleChange}/> 
+</form>
+</div>
+<div>
+<form>
+        {/* input for login? */}
+<input value-={name, password} onChange={handleChange}/> 
+</form>
+</div>
+<div>About:Benefits to signing up, basic layout of challenges, etc</div>
+{/* Difficulty Buttons for Navigation?? */}
+<div>
+    <button>Select Beginner</button>
+    <button>Select Intermediate</button>
+    <button>Select Hard</button>
+</div>
+</div>
+)
+}
