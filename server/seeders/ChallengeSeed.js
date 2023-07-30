@@ -131,33 +131,31 @@ const seedChallenges = async (userIds) => {
   await Challenge.deleteMany({});
   const challenges = await Challenge.create(challengeData);
   //Populate user ids and votes on submissions
-  for (let i = 0; i < submissions.size(); i++) {
-    const userIdIndex = Math.floor(Math.random() * userIds.length);
-    submissions[i].submitter = userIds[userIdIndex];
-    const possibleVoters = userIds.splice(userIdIndex, 1);
-    const numVotes = Math.floor(Math.random() * possibleVoters);
-    const votes = [];
-    for (let j = 0; j < numVotes; j++) {
-      const uniqueVal = Math.floor(10 * Math.random()) % 2 == 0;
-      votes.push({
-        uniqueness: uniqueVal,
-        preference: preferenceOptions[uniqueVal],
-        voter: possibleVoters[j],
-      });
+  for (let i = 0; i < submissions.length; i++) {
+    for (let k = 0; k < submissions[i].length; k++) {
+      const userIdIndex = Math.floor(Math.random() * userIds.length);
+      submissions[i][k].submitter = userIds[userIdIndex];
+      const possibleVoters = userIds.splice(userIdIndex, 1);
+      const numVotes = Math.floor(Math.random() * possibleVoters);
+      const votes = [];
+      for (let j = 0; j < numVotes; j++) {
+        const uniqueVal = Math.floor(10 * Math.random()) % 2 == 0;
+        votes.push({
+          uniqueness: uniqueVal,
+          preference: preferenceOptions[uniqueVal],
+          voter: possibleVoters[j],
+        });
+      }
+      submissions[i][k].votes = votes;
     }
-    submissions[i].votes = votes;
   }
-  // challenges[0].submissions.push({
-  //   submitter: userIds[0],
-  //   responseRepoLink: "google.com",
-  //   response: "nah",
-  // });
-  // challenges[0].submissions[0].votes.push({
-  //   uniqueness: false,
-  //   preference: "Upvote",
-  //   voter: userIds[1],
-  // });
-  return await challenges[0].save();
+  console.log(challenges);
+  for (let i = 0; i < challenges.length; i++) {
+    challenges[i].submissions.addToSet(submissions[i]);
+    challenges[i].submissions.addToSet(submissions[i + 1]);
+    await challenges[i].save();
+  }
+  return challenges; //await challenges[0].save();
 };
 
 module.exports = seedChallenges;
