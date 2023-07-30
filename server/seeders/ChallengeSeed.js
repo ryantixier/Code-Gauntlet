@@ -1,3 +1,14 @@
+const submissions = [
+  [
+    {
+      submitter: null,
+      response: "",
+    },
+    {},
+  ],
+  [{}, {}],
+  [{}, {}],
+];
 const challengeData = [
   {
     question: "Arrow Functions",
@@ -56,22 +67,22 @@ const challengeData = [
 ];
 
 const preferenceOptions = ["Upvote", "Null"];
-const { Challenge } = require("../models");
+const { User, Challenge } = require("../models");
 
 const seedChallenges = async (userIds) => {
-  const challenges = await Challenge.createMany(challengeData);
+  await Challenge.deleteMany({});
+  const challenges = await Challenge.create(challengeData);
   challenges[0].submissions.push({
     submitter: userIds[0],
     responseRepoLink: "google.com",
     response: "nah",
   });
-  challenges[0].submissions.votes.push({
-    uniqueness: false
+  challenges[0].submissions[0].votes.push({
+    uniqueness: false,
     preference: "Upvote",
-    voter: userIds[1];
-  },
-  )
-  return await challenges.save();
+    voter: userIds[1],
+  });
+  return await challenges[0].save();
 };
 
 module.exports = seedChallenges;
