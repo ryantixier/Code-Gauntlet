@@ -59,14 +59,19 @@ const preferenceOptions = ["Upvote", "Null"];
 const { Challenge } = require("../models");
 
 const seedChallenges = async (userIds) => {
-  for (let i = 0; i < challengeData.length; i++) {
-    // Random vote assignment for submission data
-  }
-
-  const result = await Challenge.create();
-  const userIds = [];
-  result.map((user) => userIds.push(user._id));
-  return userIds;
+  const challenges = await Challenge.createMany(challengeData);
+  challenges[0].submissions.push({
+    submitter: userIds[0],
+    responseRepoLink: "google.com",
+    response: "nah",
+  });
+  challenges[0].submissions.votes.push({
+    uniqueness: false
+    preference: "Upvote",
+    voter: userIds[1];
+  },
+  )
+  return await challenges.save();
 };
 
 module.exports = seedChallenges;
