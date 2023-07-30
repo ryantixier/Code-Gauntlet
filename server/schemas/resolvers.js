@@ -71,6 +71,24 @@ const resolvers = {
         { new: true }
       );
     },
+    addVote: async (
+      parent,
+      { challengeId, submissionId, uniqueness, preference, voterId }
+    ) => {
+      return await Challenge.findOneAndUpdate(
+        { _id: challengeId },
+        {
+          $addToSet: {
+            "submissions.$[sub].votes": {
+              uniqueness,
+              preference,
+              voter: voterId,
+            },
+          },
+        },
+        { arrayFilters: [{ "sub._id": submissionId }] }
+      );
+    },
   },
 };
 
