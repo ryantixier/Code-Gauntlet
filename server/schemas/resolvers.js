@@ -9,11 +9,19 @@ const resolvers = {
     },
 
     challenges: async () => {
-      return Challenge.find();
+      return Challenge.find({}).populate("submissions").populate({
+        path: "submissions",
+        populate: "votes",
+      });
     },
 
     challenge: async (parent, { challengeId }) => {
-      return Challenge.findOne({ _id: challengeId });
+      return Challenge.findOne({ _id: challengeId })
+        .populate("submissions")
+        .populate({
+          path: "submissions",
+          populate: "votes",
+        });
     },
   },
 
@@ -39,6 +47,29 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+    addSubmission: async (
+      parent,
+      { challengeId, submitterId, responseRepoLink, response }
+    ) => {
+      return await Challenge.findOneAndUpdate(
+        { _id: challengeId },
+        {
+          $addToSet: {
+            submissions: { submitter: submitterId, responseRepoLink, response },
+          },
+        },
+        {
+          new: true,
+        }
+      );
+    },
+    removeSubmission: async (parent, { challengeId, submissionId }) => {
+      return Challenge.findOneAndUpdate(
+        { _id: challengeId },
+        { $pull: { submissions: { _id: submissionId } } },
+        { new: true }
+      );
     },
   },
 };

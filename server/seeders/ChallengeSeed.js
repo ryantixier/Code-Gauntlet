@@ -1,5 +1,5 @@
 const challengeData = [
-  { question: null, questionRepoLink: null, level: "Beginner" },
+  { question: "Example 1", questionRepoLink: null, level: "Beginner" },
   { question: null, questionRepoLink: null, level: "Beginner" },
   { question: null, questionRepoLink: null, level: "Beginner" },
   { question: null, questionRepoLink: null, level: "Intermediate" },
@@ -12,7 +12,7 @@ const challengeData = [
 const preferenceOptions = ["Upvote", "Null"];
 const { Challenge } = require("../models");
 
-const seedChallenges = async (userIds) => {
+const seedChallenges = async (newUserIds) => {
   const submissionOnevotes = [
     { uniqueness: true, preference: "Null", voter: null },
     { uniqueness: true, preference: "Null", voter: null },
@@ -32,9 +32,7 @@ const seedChallenges = async (userIds) => {
   ];
 
   const result = await Challenge.create();
-  const userIds = [];
-  result.map((user) => userIds.push(user._id));
-  return userIds;
+  return result;
 };
 
 module.exports = seedChallenges;
