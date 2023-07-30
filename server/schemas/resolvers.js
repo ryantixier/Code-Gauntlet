@@ -75,19 +75,17 @@ const resolvers = {
       parent,
       { challengeId, submissionId, uniqueness, preference, voterId }
     ) => {
-      return await Challenge.findOneAndUpdate(
-        { _id: challengeId },
-        {
-          $addToSet: {
-            "submissions.$[sub].votes": {
-              uniqueness,
-              preference,
-              voter: voterId,
-            },
-          },
-        },
-        { arrayFilters: [{ "sub._id": submissionId }] }
-      );
+      const challenge = await Challenge.findOne({ _id: challengeId });
+      challenge.submissions
+        .id(submissionId)
+        .votes.addToSet({ uniqueness, preference, voter: voterId });
+      return await challenge.save();
+    },
+    removeVote: async (parent, { challengeId, submissionId, voteId }) => {
+      const challenge = await Challenge.findOne({ _id: challengeId });
+      const votes = challenge.submissions.id(submissionId).votes;
+      votes.pull({ _id: voteId });
+      return await challenge.save();
     },
   },
 };

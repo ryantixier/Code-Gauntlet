@@ -53,6 +53,7 @@ const typeDefs = gql`
       response: String!
     ): Challenge
     removeSubmission(challengeId: ID!, submissionId: ID!): Challenge
+
     addVote(
       challengeId: ID!
       submissionId: ID!
@@ -60,6 +61,7 @@ const typeDefs = gql`
       preference: String!
       voterId: ID!
     ): Challenge
+    removeVote(challengeId: ID!, submissionId: ID!, voteId: ID!): Challenge
   }
 `;
 
