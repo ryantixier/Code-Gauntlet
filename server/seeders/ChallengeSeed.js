@@ -36,7 +36,7 @@ const challengeData = [
     level: "Intermediate",
   },
   {
-    question: "Fibonaccie Sequence",
+    question: "Fibonacci Sequence",
     questionRepoLink:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question1.js",
     level: "Advanced",
@@ -59,23 +59,9 @@ const preferenceOptions = ["Upvote", "Null"];
 const { Challenge } = require("../models");
 
 const seedChallenges = async (userIds) => {
-  const submissionOnevotes = [
-    { uniqueness: true, preference: "Null", voter: null },
-    { uniqueness: true, preference: "Null", voter: null },
-    { uniqueness: false, preference: "Upvote", voter: null },
-    { uniqueness: false, preference: "Upvote", voter: null },
-    { uniqueness: true, preference: "Upvote", voter: null },
-    { uniqueness: false, preference: "Null", voter: null },
-  ];
-
-  const challengeOneSubmissionData = [
-    {
-      submitter: null,
-      responseRepoLink: null,
-      response: null,
-      votes: submissionOnevotes,
-    },
-  ];
+  for (let i = 0; i < challengeData.length; i++) {
+    // Random vote assignment for submission data
+  }
 
   const result = await Challenge.create();
   const userIds = [];
