@@ -1,21 +1,23 @@
 import React from "react";
 import {Sidebar, Menu} from react-pro-sidebar
+import '../styles/Profile.css'
+import {userName} from '../../../server/models/User'
 
 export default function Profile() {
     //eventuall username variable to populate profile header space
     return(
      <div>   <Sidebar>
-  <Menu>Profile
+  <Menu iconShape = 'circle'>Profile
+    </Menu >
+    <Menu iconShape = 'circle'>Compete
     </Menu>
-    <Menu>Compete
+    <Menu iconShape = 'circle' >Leaderboards
     </Menu>
-    <Menu>Leaderboards
-    </Menu>
-    <Menu>Vote
+    <Menu iconShape = 'circle' >Vote
     </Menu>
     </Sidebar>
         <div>
-            <h1>Welcome {username} </h1>
+            <h1>Welcome {userName} </h1>
             <div>
                 About User
             </div>
