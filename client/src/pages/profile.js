@@ -1,5 +1,5 @@
 import React from "react";
-import {Sidebar, Menu, MenuItem, SubMenu} from react-pro-sidebar
+import {Sidebar, Menu} from react-pro-sidebar
 
 export default function Profile() {
     //eventuall username variable to populate profile header space
