@@ -1,0 +1,23 @@
+.profilebackground{
+display: block;
+z-index: 0;
+width: 100%;
+height: 100%;
+}
+
+sidebar{
+    display:flex;
+    position:fixed;
+    z-index: 1;
+
+}
+aboutUser{
+    display: flex;
+    z-index:1;
+}
+
+suggestions{
+    z-index: 1;
+    display: flex;
+    position:relative
+}
