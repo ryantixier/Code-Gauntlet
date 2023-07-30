@@ -5,23 +5,29 @@ const { signToken } = require("../utils/auth.js");
 const resolvers = {
   Query: {
     user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+      return await User.findOne({ _id: userId });
     },
 
     challenges: async () => {
-      return Challenge.find({}).populate("submissions").populate({
-        path: "submissions",
-        populate: "votes",
-      });
+      return await Challenge.find({})
+        .populate("submissions")
+        .populate({ path: "submissions", populate: "submitter" });
     },
 
     challenge: async (parent, { challengeId }) => {
-      return Challenge.findOne({ _id: challengeId })
+      return await Challenge.findOne({ _id: challengeId })
+        .populate("submissions")
+        .populate({ path: "submissions", populate: "submitter" });
+    },
+
+    submissions: async (parent, { challengeId }) => {
+      const challenge = await Challenge.findOne({ _id: challengeId })
         .populate("submissions")
         .populate({
           path: "submissions",
-          populate: "votes",
+          populate: ["submitter", { path: "votes", populate: "voter" }],
         });
+      return challenge.submissions;
     },
   },
 
@@ -50,13 +56,26 @@ const resolvers = {
     },
     addSubmission: async (
       parent,
-      { challengeId, submitterId, responseRepoLink, response }
+      { challengeId, submitterId, responseRepoLink, response },
+      context
     ) => {
+      // Uncomment after testing w/ apollo server
+      // if (!context.user) {
+      //   throw new AuthenticationError(
+      //     "You must be logged in to add a submission!"
+      //   );
+      // }
+      // swap in submissions body
+      // submitter: context.user._id,
       return await Challenge.findOneAndUpdate(
         { _id: challengeId },
         {
           $addToSet: {
-            submissions: { submitter: submitterId, responseRepoLink, response },
+            submissions: {
+              submitter: submitterId,
+              responseRepoLink,
+              response,
+            },
           },
         },
         {
@@ -64,17 +83,39 @@ const resolvers = {
         }
       );
     },
-    removeSubmission: async (parent, { challengeId, submissionId }) => {
+    removeSubmission: async (
+      parent,
+      { challengeId, submissionId },
+      context
+    ) => {
+      // Uncomment after testing w/ apollo server
+      // if (!context.user) {
+      //   throw new AuthenticationError(
+      //     "You must be logged in to remove your submission!"
+      //   );
+      // }
+      // add to filed-value obj for submissions , submitter: context.user._id
+      //?? do we want to return an error if the submission was not entered by the user in context?
       return Challenge.findOneAndUpdate(
         { _id: challengeId },
-        { $pull: { submissions: { _id: submissionId } } },
+        {
+          $pull: {
+            submissions: { _id: submissionId },
+          },
+        },
         { new: true }
       );
     },
     addVote: async (
       parent,
-      { challengeId, submissionId, uniqueness, preference, voterId }
+      { challengeId, submissionId, uniqueness, preference, voterId },
+      context
     ) => {
+      // Uncomment after testing w/ apollo server
+      // if (!context.user) {
+      //   throw new AuthenticationError("You must be logged in to vote!");
+      // }
+      // context.user._id
       const challenge = await Challenge.findOne({ _id: challengeId });
       challenge.submissions
         .id(submissionId)
@@ -84,6 +125,7 @@ const resolvers = {
     removeVote: async (parent, { challengeId, submissionId, voteId }) => {
       const challenge = await Challenge.findOne({ _id: challengeId });
       const votes = challenge.submissions.id(submissionId).votes;
+      //?? do we want to return an error if the submission was not entered by the user in context?
       votes.pull({ _id: voteId });
       return await challenge.save();
     },

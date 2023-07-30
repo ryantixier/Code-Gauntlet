@@ -25,7 +25,7 @@ const typeDefs = gql`
   }
 
   type Vote {
-    _id: ID!
+    _id: ID
     uniqueness: Boolean
     preference: String
     voter: User
@@ -40,6 +40,8 @@ const typeDefs = gql`
     user(userId: ID!): User
     challenges: [Challenge]!
     challenge(challengeId: ID!): Challenge
+
+    submissions(challengeId: ID!): [Submission]
   }
 
   type Mutation {
