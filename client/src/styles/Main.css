@@ -10,7 +10,18 @@
     z-index: 0;
 }
 
-er-message{
+.container{
+    display:flex;
+    position:relative ;
+    padding: 20%;
+}
+
+.er-message{
     color: crimson;
+
+}
+
+.buttonlook{
+    color:maroon
 
 }

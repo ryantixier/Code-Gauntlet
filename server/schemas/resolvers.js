@@ -94,7 +94,7 @@ const resolvers = {
       //     "You must be logged in to remove your submission!"
       //   );
       // }
-      // add to filed-value obj for submissions , submitter: context.user._id
+      // add to filed value obj for submissions , submitter: context.user._id
       //?? do we want to return an error if the submission was not entered by the user in context?
       return Challenge.findOneAndUpdate(
         { _id: challengeId },
