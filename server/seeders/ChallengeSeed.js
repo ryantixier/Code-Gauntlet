@@ -37,18 +37,18 @@ const submissions = [
     {
       submitter: null,
       response: `const example = () => {
-    var a = 2;
-    let b = 3;
-    let d = 6;
-    console.log(a + b); // Should return 5
-    {
-      var c = 5;
-      
-      console.log(c + d); // Should return 11
-    }
-    console.log(a + c); // Should return 7
-    console.log(b + d); // Should return 9
-  };`,
+      var a = 2;
+      let b = 3;
+      let d = 6;
+      console.log(a + b); // Should return 5
+      {
+        var c = 5;
+        
+        console.log(c + d); // Should return 11
+      }
+      console.log(a + c); // Should return 7
+      console.log(b + d); // Should return 9
+    };`,
     },
     {
       submitter: null,
