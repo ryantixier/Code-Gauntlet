@@ -8,6 +8,20 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import SubmissionModal from "../components/ChallengeComps/SubmissionModal";
 
+// talk to back-end about how to include prompt information
+const Advanced1 = `// TODO: Complete the function so that the first six digits of the Fibonacci sequence (0, 1, 1, 2, 3, 5) are returned
+
+    const fibonacci = (n) =>
+      Array.from({ length: n })
+        .reduce
+        // (acc, val, i) =>  Your code here
+        ();
+    
+    fibonacci(6);`;
+
+const Advanced2 = {};
+const Advanced3 = {};
+
 export default function Advanced() {
   //
   return (
@@ -25,7 +39,9 @@ export default function Advanced() {
         </CardContent>
         <CardActions>
           <ButtonGroup>
-            <Button size="small">View Prompt</Button>
+            <Button size="small" href={Advanced1}>
+              View Prompt
+            </Button>
             {/* link button to modal for challenge prompt */}
             <Button size="small" href={SubmissionModal}>
               Submit Entry

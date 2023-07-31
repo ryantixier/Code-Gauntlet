@@ -8,6 +8,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import SubmissionModal from "../components/ChallengeComps/SubmissionModal";
 
+const Intermediate1 = {};
+const Intermediate2 = {};
+const Intermediate3 = {};
+
 export default function Intermediate() {
   //
   return (
