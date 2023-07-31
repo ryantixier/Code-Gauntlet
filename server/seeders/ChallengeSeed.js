@@ -140,7 +140,7 @@ const seedChallenges = async (userIds) => {
       const votes = [];
       for (let j = 0; j < possibleVoters.length; j++) {
         const randPreferenceIndex = Math.floor(10 * Math.random()) % 2;
-        const uniqueVal = randVal == 0;
+        const uniqueVal = randPreferenceIndex == 0;
         votes.push({
           uniqueness: uniqueVal,
           preference: preferenceOptions[randPreferenceIndex],

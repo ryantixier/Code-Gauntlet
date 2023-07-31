@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "develop": "concurrently \"cd server && npx nodemon server.js\" \"cd client && npm start\""
+  },
   "dependencies": {
+    "concurrently": "^8.2.0",
     "react-pro-sidebar": "^1.1.0-alpha.1"
   }
 }
