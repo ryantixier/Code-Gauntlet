@@ -36,7 +36,7 @@ const challengeSchema = new Schema({
     type: String,
     required: true,
   },
-  questionRepoLink: {
+  questionCode: {
     type: String,
     required: true,
   },
