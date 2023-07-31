@@ -15,10 +15,19 @@ const voteSchema = new Schema({
   },
 });
 
-const submission = new Schema({
-  submitter: { type: Schema.Types.ObjectID, ref: "User" },
-  responseRepoLink: { type: String },
-  response: { type: String, required: true },
+const submissionSchema = new Schema({
+  submitter: {
+    type: Schema.Types.ObjectID,
+    ref: "User",
+    required: true,
+  },
+  responseRepoLink: {
+    type: String,
+  },
+  response: {
+    type: String,
+    required: true,
+  },
   votes: [voteSchema],
 });
 
@@ -27,7 +36,7 @@ const challengeSchema = new Schema({
     type: String,
     required: true,
   },
-  questionRepoLink: {
+  questionCode: {
     type: String,
     required: true,
   },
@@ -35,7 +44,7 @@ const challengeSchema = new Schema({
     type: String,
     required: true,
   },
-  submissions: [submission],
+  submissions: [submissionSchema],
 });
 
 const Challenge = model("Challenge", challengeSchema);

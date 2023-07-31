@@ -22,6 +22,7 @@ const userData = [
 ];
 const { User } = require("../models");
 const seedUsers = async () => {
+  await User.deleteMany({});
   const result = await User.create(userData);
   const userIds = [];
   result.map((user) => userIds.push(user._id));
