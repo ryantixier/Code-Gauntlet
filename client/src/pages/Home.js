@@ -1,37 +1,25 @@
+
 import React, { useEffect, useState } from "react";
-import Granim from "granim";
 import "../styles/Main.css";
 
 function Main() {
-  const [name, setUserName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [setErrorMessage, errorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    const granimInstance = new Granim({
-      element: "#canvas-complex",
-      direction: "left-right",
-      isPausedWhenNotInView: true,
-      states: {
-        "default-state": {
-          gradients: [
-            [
-              { color: "#833ab4", pos: 0.2 },
-              { color: "#fd1d1d", pos: 0.8 },
-              { color: "#38ef7d", pos: 1 },
-            ],
-            [
-              { color: "#40e0d0", pos: 0 },
-              { color: "#ff8c00", pos: 0.2 },
-              { color: "#ff0080", pos: 0.75 },
-            ],
-          ],
-        },
-      },
-    });
-    return () => granimInstance.destroy();
-  }, []);
+  
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const checkPassword = (password) => {
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const isLengthValid = password.length>=8;
+    return hasUpperCase && hasLowerCase && isLengthValid;
+  };
 
   const handleInputChange = (e) => {
     const { target } = e;
@@ -62,7 +50,15 @@ function Main() {
     setUserName("");
     setPassword("");
     setEmail("");
+  };
 
+  const handleSigninSubmit = (e) => {
+    e.preventDefault();
+
+    alert(`signed in as ${userName}`)
+    setUserName('');
+    setPassword('');
+  }
     return (
       <div className="container">
         <canvas id="canvas-complex"></canvas>
@@ -120,7 +116,7 @@ function Main() {
               <b>UserName</b>
             </label>
             <input
-              value={name}
+              value={userName}
               onChange={(e) => setName(e.target.value)}
               required
             />
@@ -132,7 +128,7 @@ function Main() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="button" onClick={handleFormSubmit}>
+            <button type="button" onClick={handleSigninSubmit}>
               SignIn
             </button>
           </form>
@@ -152,6 +148,6 @@ function Main() {
       </div>
     );
   };
-}
 
-export default Main;
+
+export default Main
