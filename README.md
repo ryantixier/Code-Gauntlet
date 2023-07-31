@@ -22,7 +22,7 @@ Navigate to this link: (insert Heroku link here). Sign up or login and select yo
 
 ## Contributors
 
-This project was a collaborative effort between @corynko, @katrod69, @jaxson-lybbert, @ryan-tixier, and @ThePebble01.
+This project was a collaborative effort between @corynko, @katrod69, @jaxson-lybbert, @ryantixier, and @ThePebble01.
 
 ## Testing
 
@@ -30,4 +30,4 @@ N/A
 
 ## Questions
 
-If you have any additional questions, feel free to contact me on Github @@ryan-tixier, or by email: (insert ryan's email?)
+If you have any additional questions, feel free to contact me on Github @ryantixier, or by email: (insert ryan's email?)
