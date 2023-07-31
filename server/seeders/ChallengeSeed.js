@@ -51,7 +51,7 @@ const submissions = [
   };`,
     },
     {
-      submiiter: null,
+      submitter: null,
       response: `const example = () => {
         const a = 2;
         const b = 3;
@@ -125,22 +125,38 @@ const challengeData = [
 ];
 
 const preferenceOptions = ["Upvote", "Null"];
-const { User, Challenge } = require("../models");
+const { Challenge } = require("../models");
 
 const seedChallenges = async (userIds) => {
   await Challenge.deleteMany({});
   const challenges = await Challenge.create(challengeData);
-  challenges[0].submissions.push({
-    submitter: userIds[0],
-    responseRepoLink: "google.com",
-    response: "nah",
-  });
-  challenges[0].submissions[0].votes.push({
-    uniqueness: false,
-    preference: "Upvote",
-    voter: userIds[1],
-  });
-  return await challenges[0].save();
+  //Populate user ids and votes on submissions
+  for (let i = 0; i < submissions.length; i++) {
+    let userIdsCopy = [...userIds];
+    for (let k = 0; k < submissions[i].length; k++) {
+      const userIdIndex = Math.floor(Math.random() * userIds.length);
+      submissions[i][k].submitter = userIds[userIdIndex];
+      const possibleVoters = userIdsCopy.splice(userIdIndex, 1);
+      const votes = [];
+      for (let j = 0; j < possibleVoters.length; j++) {
+        const randPreferenceIndex = Math.floor(10 * Math.random()) % 2;
+        const uniqueVal = randVal == 0;
+        votes.push({
+          uniqueness: uniqueVal,
+          preference: preferenceOptions[randPreferenceIndex],
+          voter: possibleVoters[j],
+        });
+      }
+      submissions[i][k].votes = votes;
+    }
+  }
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 2; j++) {
+      challenges[i].submissions.push(submissions[i][j]);
+    }
+    await challenges[i].save();
+  }
+  return;
 };
 
 module.exports = seedChallenges;
