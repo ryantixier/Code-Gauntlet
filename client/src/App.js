@@ -11,7 +11,7 @@ import "./App.css";
 // import Nav from "./components/NavComps/NavBar";
 import Home from "./pages/Home";
 import Challenge from "./pages/Challenge";
-import Profile from "./pages/Profile_2";
+import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
 
 //system-preference-set dark mode
