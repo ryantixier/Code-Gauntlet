@@ -37,18 +37,18 @@ const submissions = [
     {
       submitter: null,
       response: `const example = () => {
-    var a = 2;
-    let b = 3;
-    let d = 6;
-    console.log(a + b); // Should return 5
-    {
-      var c = 5;
-      
-      console.log(c + d); // Should return 11
-    }
-    console.log(a + c); // Should return 7
-    console.log(b + d); // Should return 9
-  };`,
+      var a = 2;
+      let b = 3;
+      let d = 6;
+      console.log(a + b); // Should return 5
+      {
+        var c = 5;
+        
+        console.log(c + d); // Should return 11
+      }
+      console.log(a + c); // Should return 7
+      console.log(b + d); // Should return 9
+    };`,
     },
     {
       submitter: null,
@@ -70,55 +70,55 @@ const submissions = [
 const challengeData = [
   {
     question: "Arrow Functions",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Beginner/question1.js",
     level: "Beginner",
   },
   {
     question: "Array Concatenation",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Beginner/question2.js",
     level: "Beginner",
   },
   {
     question: "Debugging Practice",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Beginner/question3.js",
     level: "Beginner",
   },
   {
     question: "Node.js Writing to a File",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Intermediate/question1.js",
     level: "Intermediate",
   },
   {
     question: "Higher Order Functions",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Intermediate/question2.js",
     level: "Intermediate",
   },
   {
     question: "forEach Loops",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Intermediate/question3.js",
     level: "Intermediate",
   },
   {
     question: "Fibonacci Sequence",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question1.js",
     level: "Advanced",
   },
   {
     question: "Find the First Missing Positive Integer",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question2.js",
     level: "Advanced",
   },
   {
     question: "Median of Arrays",
-    questionRepoLink:
+    questionCode:
       "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question3.js",
     level: "Advanced",
   },

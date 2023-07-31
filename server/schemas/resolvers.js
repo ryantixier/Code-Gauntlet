@@ -120,14 +120,26 @@ const resolvers = {
       challenge.submissions
         .id(submissionId)
         .votes.addToSet({ uniqueness, preference, voter: voterId });
-      return await challenge.save();
+      await challenge.save();
+      return await Challenge.findOne({ _id: challengeId })
+        .populate("submissions")
+        .populate({
+          path: "submissions",
+          populate: ["submitter", { path: "votes", populate: "voter" }],
+        });
     },
     removeVote: async (parent, { challengeId, submissionId, voteId }) => {
       const challenge = await Challenge.findOne({ _id: challengeId });
       const votes = challenge.submissions.id(submissionId).votes;
       //?? do we want to return an error if the submission was not entered by the user in context?
       votes.pull({ _id: voteId });
-      return await challenge.save();
+      await challenge.save();
+      return await Challenge.findOne({ _id: challengeId })
+        .populate("submissions")
+        .populate({
+          path: "submissions",
+          populate: ["submitter", { path: "votes", populate: "voter" }],
+        });
     },
   },
 };
