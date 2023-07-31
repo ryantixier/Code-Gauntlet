@@ -1,8 +1,13 @@
 {
-  "name": "code-gauntlet",
+  "name": "Code-Gauntlet",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
+    "": {
+      "dependencies": {
+        "react-pro-sidebar": "^1.1.0-alpha.1"
+      }
+    },
     "node_modules/@babel/code-frame": {
       "version": "7.22.5",
       "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.22.5.tgz",
