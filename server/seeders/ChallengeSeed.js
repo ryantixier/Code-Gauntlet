@@ -70,56 +70,133 @@ const submissions = [
 const challengeData = [
   {
     question: "Arrow Functions",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Beginner/question1.js",
+    questionCode: `// TODO: Rewrite the following Event Listener using arrow functions
+
+    const toggleElements = document.querySelectorAll(".toggle");
+    toggleElements.forEach(function () {
+      el.addEventListener("click", function () {
+        this.classList.toggle("active");
+      });
+    });
+    `,
     level: "Beginner",
   },
   {
     question: "Array Concatenation",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Beginner/question2.js",
+    questionCode: `// TODO: Concatenate the following arrays using one line of code.  How many ways can you do it?
+
+      const a = [1, 2, 3];
+      
+      const b = [4, 5, 6];
+      
+      // Your code here
+      `,
     level: "Beginner",
   },
   {
     question: "Debugging Practice",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Beginner/question3.js",
+    questionCode: `// TODO: Debug the following code so that all expected values are returned.
+
+      const example = () => {
+        var a = 2;
+        let b = 3;
+        console.log(a + b); // Should return 5
+        {
+          var c = 5;
+          let d = 6;
+          console.log(c + d); // Should return 11
+        }
+        console.log(a + c); // Should return 7
+        console.log(b + d); // Should return 9
+      };
+      `,
     level: "Beginner",
   },
   {
     question: "Node.js Writing to a File",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Intermediate/question1.js",
+    questionCode: `// TODO: Finish the function below so the the string "is passed" is successfully written to testFile.json
+
+      const fs = require("fs");
+      
+      const JSONToFile = (obj, filename) =>
+        // Your code here
+      
+        JSONToFile({ test: "is passed" }, "testFile");
+      `,
     level: "Intermediate",
   },
   {
     question: "Higher Order Functions",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Intermediate/question2.js",
+    questionCode: `// TODO: Using advanced array methods, construct two higher order functions that can display the following data: [2, 4, 6] and a sum of that array (12).
+
+      const add = (a, b) => a + b;
+      const isEven = (num) => num % 2 === 0;
+      
+      const data = [2, 3, 1, 5, 4, 6];
+      
+      // Your code here
+      `,
     level: "Intermediate",
   },
   {
     question: "forEach Loops",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Intermediate/question3.js",
+    questionCode: `// TODO: Finish the two forEach loops so that one returns the values of the array (a, b, c) and the other returns the indexes of the array (0, 1, 2)
+
+     ["a", "b", "c"].forEach();
+     
+     ["a", "b", "c"].forEach();`,
     level: "Intermediate",
   },
   {
     question: "Fibonacci Sequence",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question1.js",
+    questionCode: `// TODO: Complete the function so that the first six digits of the Fibonacci sequence (0, 1, 1, 2, 3, 5) are returned
+
+    const fibonacci = (n) => {
+      // Your code here
+    };
+    `,
     level: "Advanced",
   },
   {
     question: "Find the First Missing Positive Integer",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question2.js",
+    questionCode: `// TODO: Given an unsorted integer array [nums], return the smallest missing positive integer.
+
+    const firstMissingPositive = function (nums) {
+      // Your code here
+    };
+    
+    // Example 1:
+    
+    // Input: nums = [1,2,0]
+    // Output: 3
+    // Explanation: The numbers in the range [1,2] are all in the array.
+    // Example 2:
+    
+    // Input: nums = [3,4,-1,1]
+    // Output: 2
+    // Explanation: 1 is in the array but 2 is missing.
+    // Example 3:
+    
+    // Input: nums = [7,8,9,11,12]
+    // Output: 1
+    // Explanation: The smallest positive integer 1 is missing.
+    
+      `,
     level: "Advanced",
   },
   {
     question: "Median of Arrays",
-    questionCode:
-      "https://github.com/ryantixier/Code-Gauntlet/blob/main/Challenges/Advanced/question3.js",
+    questionCode: `// TODO: Find and return the median of the two arrays
+
+      const nums1 = [1, 2, 3];
+      const nums2 = [4, 5, 6];
+      
+      const findMedianSortedArrays = function (nums1, nums2) {
+        // Your code here
+      };
+      
+      // Should return 3.5
+      `,
     level: "Advanced",
   },
 ];
@@ -140,7 +217,7 @@ const seedChallenges = async (userIds) => {
       const votes = [];
       for (let j = 0; j < possibleVoters.length; j++) {
         const randPreferenceIndex = Math.floor(10 * Math.random()) % 2;
-        const uniqueVal = randVal == 0;
+        const uniqueVal = randPreferenceIndex == 0;
         votes.push({
           uniqueness: uniqueVal,
           preference: preferenceOptions[randPreferenceIndex],
