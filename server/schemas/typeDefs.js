@@ -11,7 +11,7 @@ const typeDefs = gql`
   type Challenge {
     _id: ID!
     question: String!
-    questionRepoLink: String!
+    questionCode: String!
     level: String!
     submissions: [Submission]
   }
