@@ -1,5 +1,5 @@
 import React from "react";
-import {Sidebar, Menu} from react-pro-sidebar
+import {Sidebar, Menu} from react-pro-sidebar;
 import '../styles/Profile.css'
 import {userName} from '../../../server/models/User'
 
@@ -25,4 +25,4 @@ export default function Profile() {
         </div>
         </div>
     )
-}
+};
