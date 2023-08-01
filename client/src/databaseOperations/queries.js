@@ -1,14 +1,16 @@
 import { gql } from "@apollo/client";
-
+//Query user by Id, returning that user's id and name.
 export const QUERY_USER = gql`
   query user($userId: ID!) {
     user(userId: $userId) {
       _id
       name
+      email
+      password
     }
   }
 `;
-
+//Query and return all challenges with submissions and submitters.
 export const QUERY_CHALLENGES = gql`
   query challenges {
     challenges {
@@ -28,7 +30,7 @@ export const QUERY_CHALLENGES = gql`
     }
   }
 `;
-
+//Query a single challenge, returning it and submissions with submitter.
 export const QUERY_CHALLENGE = gql`
   query challenge($challengeId: ID!) {
     challenge(challengeId: $challengeId) {
@@ -48,7 +50,7 @@ export const QUERY_CHALLENGE = gql`
     }
   }
 `;
-
+//Query all submissions from a single challenge, returning the related submissions with votes and voters.
 export const QUERY_SUBMISSIONS = gql`
   query submissions($challengeId: ID!) {
     submissions(challengeId: $challengeId) {
