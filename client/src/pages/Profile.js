@@ -1,4 +1,3 @@
-
 import { useQuery } from "@apollo/client";
 import { Sidebar, Menu } from "react-pro-sidebar";
 import "../styles/Profile.css";
