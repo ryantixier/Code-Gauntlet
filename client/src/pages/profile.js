@@ -1,10 +1,13 @@
-import React from "react";
+import {useQuery} from "react";
 import {Sidebar, Menu} from react-pro-sidebar;
 import '../styles/Profile.css'
-import {userName} from '../../../server/models/User'
+import {QUERY_USER} from '../databaseOperations/queries';
+
+
 
 export default function Profile() {
-    //eventuall username variable to populate profile header space
+   const {loading, data} = useQuery (QUERY_USER, {variables: {userId:6969}})
+
     return(
      <div>   <Sidebar>
   <Menu iconShape = 'circle'>Profile
@@ -17,7 +20,7 @@ export default function Profile() {
     </Menu>
     </Sidebar>
         <div>
-            <h1>Welcome {userName} </h1>
+            <h1>Welcome {QUERY_USER} </h1>
             <div>
                 About User
             </div>
