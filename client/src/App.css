@@ -1,11 +1,10 @@
-
-.App-Section{
-  font-family: 'GLADIATOR SPORT Regular';
+.App-Section {
+  font-family: "GLADIATOR SPORT Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('GLADIATOR SPORT Regular'), url('../src/fonts/GLADIATOR\ SPORT.woff') fomat('woff');
+  src: local("GLADIATOR SPORT Regular"),
+    url("../src/fonts/GLADIATOR\ SPORT.woff") format("woff");
 }
-
 
 html,
 body {
@@ -78,4 +77,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
