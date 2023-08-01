@@ -1,3 +1,4 @@
+
 import { useQuery } from "@apollo/client";
 import { Sidebar, Menu } from "react-pro-sidebar";
 import "../styles/Profile.css";
@@ -7,7 +8,6 @@ export default function Profile() {
   const { loading, data } = useQuery(QUERY_USER, {
     variables: { userId: 6969 },
   });
-
   return (
     <div>
       {" "}
