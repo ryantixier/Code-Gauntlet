@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "cd server && node server.js"
+  },
   "dependencies": {
     "react-pro-sidebar": "^1.1.0-alpha.1"
   }
