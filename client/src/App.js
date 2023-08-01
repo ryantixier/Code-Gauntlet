@@ -9,10 +9,11 @@ import "./App.css";
 
 //import page links
 // import Nav from "./components/NavComps/NavBar";
-import Home from "./pages/Home";
-import Challenge from "./pages/Challenge";
-import Profile from "./pages/Profile";
-import Leaderboard from "./pages/Leaderboard";
+// import Home from "./pages/Home";
+// import Challenge from "./pages/Challenge";
+// import Profile from "./pages/Profile";
+// import Leaderboard from "./pages/Leaderboard";
+import CRTVAnimation from "./pages/CRTVAnimation";
 
 //system-preference-set dark mode
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -153,10 +154,10 @@ export default function App() {
         <div className="container">
           {/* <Nav /> */}
           <Routes>
-            <Route path="/challenge" element={<Challenge />} />
+            {/* <Route path="/challenge" element={<Challenge />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/*" element={<Home />} />
+            <Route path="/leaderboard" element={<Leaderboard />} /> */}
+            <Route path="/*" element={<CRTVAnimation />} />
           </Routes>
         </div>
       </ThemeProvider>
