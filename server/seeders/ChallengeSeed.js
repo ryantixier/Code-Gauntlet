@@ -165,7 +165,7 @@ const challengeData = [
       // Your code here
     };
     
-    // Example 1:
+    // Example 1: 
     
     // Input: nums = [1,2,0]
     // Output: 3
