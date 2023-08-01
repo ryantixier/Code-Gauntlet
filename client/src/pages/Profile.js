@@ -1,5 +1,5 @@
 import {useQuery} from "react";
-import {Sidebar, Menu} from react-pro-sidebar;
+import {Sidebar, Menu} from 'react-pro-sidebar';
 import '../styles/Profile.css'
 import {QUERY_USER} from '../databaseOperations/queries';
 
