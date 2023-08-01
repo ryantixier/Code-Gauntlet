@@ -4,14 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 // import NavItemsMobile from "./navMobileMotionComponents/navItemsMobile";
-
-//animated imports
-// import LeftCurlyMotion from "./navDeskMotionComponents/leftCurlyMotion";
-// import RightCurlyMotion from "./navDeskMotionComponents/rightCurlyMotion";
-// import LeftCurlyMotionFinal from "./navDeskMotionComponents/leftCurlyMotionFinal";
-// import RightCurlyMotionFinal from "./navDeskMotionComponents/rightCurlyMotionFinal";
-// import LetteringMotion from "./navDeskMotionComponents/letteringMotion";
-// import LogoFadeDesktop from "./navDeskMotionComponents/logoTextFragment";
+import NavLogo from "./NavLogo";
 import NavItemsDesktop from "./NavItemsDesktop";
 // import LogoFadeMobile from "./navMobileMotionComponents/logoFadeMobile";
 
@@ -24,25 +17,16 @@ function ResponsiveAppBar() {
             width: 1,
             display: "flex",
             flexGrow: 1,
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          {/* <LeftCurlyMotionFinal /> */}
-
+          <NavLogo />
           {/* <LogoFadeDesktop /> */}
           {/* <LogoFadeMobile /> */}
 
-          {/* <LeftCurlyMotion /> */}
-
-          {/* <LetteringMotion /> */}
-
-          {/* <RightCurlyMotion /> */}
-
           <NavItemsDesktop />
           {/* <NavItemsMobile /> */}
-
-          {/* <RightCurlyMotionFinal /> */}
         </Box>
       </Toolbar>
     </AppBar>
