@@ -11,12 +11,12 @@ function Main() {
       <HomeImg />
       <div className="pageDiv">
         <div className="container">
-          <h1>Code Gauntlet</h1>
-          <p>
-            Code Gauntlet is a free interactive space to not only challenge your
-            coding skills but your friends as well. Sign up to take full
-            advantage of our features
-          </p>
+          <h1 className="center">Code Gauntlet</h1>
+          <div className="flex around">
+            <h3 className="center">Get Challenged.</h3>
+            <h3 className="center">Win Challenges.</h3>
+            <h3 className="center">Challenge Others.</h3>
+          </div>
           <HomeChallengeBtns />
           <HomeSignIn />
           <HomeSignup />
