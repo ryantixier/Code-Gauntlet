@@ -1,7 +1,81 @@
+
 .App-Section{
   font-family: 'GLADIATOR SPORT Regular';
   font-style: normal;
   font-weight: normal;
   src: local('GLADIATOR SPORT Regular'), url('../src/fonts/GLADIATOR\ SPORT.woff') fomat('woff');
+}
+
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.elementsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.toolbar {
+  position: relative;
+  max-width: 100%;
+  padding-left: 20px;
+  background-color: #b0afaf;
+  box-shadow: 0.25em 0.25em 1em 1em #393939;
+}
+
+.navLink,
+.navLink button {
+  color: #46120a;
+  text-decoration: none;
+  font-style: none;
+  transition: all 0.3s ease-in;
+}
+.navLink button:hover {
+  color: #ffc857;
+  transition: all 0.3s ease-in;
+}
+
+.coverImg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -12;
+}
+
+.homeCover {
+  background-image: url("./assets/images/code_gauntlet_background.png");
+}
+
+.pageDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.elementsWrapper {
+  max-height: 80vh;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 

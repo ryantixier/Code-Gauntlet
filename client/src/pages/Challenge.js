@@ -1,6 +1,6 @@
 import React from "react";
-import { NavBar } from "../components/NavComps/NavBar";
-import { ChallengeHeader } from "../components/ChallengeComps/ChallengeHeader";
+// import NavBar from "../components/NavComps/NavBar";
+// import { ChallengeHeader } from "../components/ChallengeComps/ChallengeHeader";
 import ChallengeBody from "../components/ChallengeComps/ChallengeBody";
 
 export default function Challenge() {
@@ -9,9 +9,9 @@ export default function Challenge() {
   return (
     <>
       {/* Start Sidebar */}
-      <NavBar />
+      {/* <NavBar /> */}
       {/* End Sidebar */}
-      <ChallengeHeader />;
+      {/* <ChallengeHeader />; */}
       <ChallengeBody />;
     </>
   );

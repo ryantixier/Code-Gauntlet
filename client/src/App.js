@@ -9,7 +9,7 @@ import "./App.css";
 
 
 //import page links
-// import Nav from "./components/NavComps/NavBar";
+import Nav from "./components/NavComps/NavBar";
 import Home from "./pages/Home";
 import Challenge from "./pages/Challenge";
 import Profile from "./pages/Profile";
@@ -158,7 +158,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="container">
-          {/* <Nav /> */}
+          <Nav />
           <Routes>
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/profile" element={<Profile />} />
