@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //import app styles
 import "./App.css";
 
+
 //import page links
 import Nav from "./components/NavComps/NavBar";
 import Home from "./pages/Home";
@@ -30,19 +31,25 @@ export default function App() {
           mode: prefersDarkMode ? "dark" : "light",
           //dark mode
           primary: {
-            main: "#55628b",
-            light: "#7f90bd",
-            dark: "#39445e",
+            main: "#ebffeb",
+            light: "#ffc857",
+            contrastText: '#ffc857',
+            dark: "#ffc857",
           },
           secondary: {
-            main: "#71ad87",
+            main: "#ffc857",
+            light: '#ebffeb',
+          },
+          info: {
+            main: '#68543a',
+            contrastText: '#888375',
           },
           background: {
-            default: "#232323",
-            paper: "#242424",
+            default: "#888375",
+            paper: "#46120a",
           },
           text: {
-            primary: "#f5f5f5",
+            primary: "#ebffeb",
             hint: "#111111",
           },
           error: {
