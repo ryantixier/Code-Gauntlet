@@ -6,7 +6,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import SubmissionModal from "../components/ChallengeComps/SubmissionModal";
+import SubmissionModal from "../SubmissionModal";
 
 // talk to back-end about how to include prompt information
 const Advanced1 = `// TODO: Complete the function so that the first six digits of the Fibonacci sequence (0, 1, 1, 2, 3, 5) are returned
