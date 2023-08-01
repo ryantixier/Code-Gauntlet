@@ -1,10 +1,16 @@
 {
-  "main": "server/server.js",
+  "name": "code-gauntlet",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
     "install": "cd server && npm i && cd ../client && npm i",
     "start": "cd server && node server.js"
   },
-  "dependencies": {
-    "react-pro-sidebar": "^1.1.0-alpha.1"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.5"
   }
 }
