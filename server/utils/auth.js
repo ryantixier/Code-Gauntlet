@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const secret = "TheGuntletOnlyReturnsNULLLLLllllllll";
+const secret = process.env.SECRET || "defaultSecretSHhHHhH";
 const expiration = "1h";
 
 module.exports = {
