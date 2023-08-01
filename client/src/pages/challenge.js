@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/NavComps/NavBar";
 import ChallengeHeader from "../components/ChallengeComps/ChallengeHeader";
 import ChallengeBody from "../components/ChallengeComps/ChallengeBody";
+import { Container } from "@mui/material";
 
 export default function Challenge() {
   // styling/formatting here; ref wireframe
@@ -9,10 +10,12 @@ export default function Challenge() {
   return (
     <>
       {/* Start Sidebar */}
-      <NavBar />
+      {/* <NavBar /> */}
       {/* End Sidebar */}
-      <ChallengeHeader />;
-      <ChallengeBody />;
+      {/* <ChallengeHeader />; */}
+      <div className="container">
+        <ChallengeBody />
+      </div>
     </>
   );
 }

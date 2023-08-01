@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Beginner from "./ChallengeCards/Beginner";
 import Intermdiate from "./ChallengeCards/Intermediate";
 import Advanced from "./ChallengeCards/Advanced";
+// import Intermediate from "./ChallengeCards/Intermediate";
 
 export default function ChallengeBody() {
   // insert menu selector here:
@@ -26,7 +27,7 @@ export default function ChallengeBody() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {Beginner}
+            <Beginner />
             {/* insert form for input */}
           </Typography>
         </AccordionDetails>
@@ -41,7 +42,7 @@ export default function ChallengeBody() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {Intermdiate}
+            <Intermdiate />
             {/* insert modal form for input */}
           </Typography>
         </AccordionDetails>
@@ -56,7 +57,7 @@ export default function ChallengeBody() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {Advanced}
+            <Advanced />
             {/* insert form for input */}
           </Typography>
         </AccordionDetails>

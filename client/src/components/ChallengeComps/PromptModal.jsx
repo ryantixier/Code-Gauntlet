@@ -4,6 +4,9 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 
+// import { useQuery } from "@apollo/client";
+// import { QUERY_CHALLENGES } from "../../databaseOperations/queries";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,6 +23,8 @@ export default function PromptModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // const { loading, data } = useQuery(QUERY_CHALLENGES);
 
   return (
     <div>
