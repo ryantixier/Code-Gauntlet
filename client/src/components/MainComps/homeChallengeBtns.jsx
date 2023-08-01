@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function homeChallengeBtns() {
+export default function HomeChallengeBtns() {
   return (
     <div>
       <button>Select Beginner</button>

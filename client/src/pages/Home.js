@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Main.css";
+import HomeChallengeBtns from "../components/MainComps/homeChallengeBtns";
+import HomeSignIn from "../components/MainComps/homeSignIn";
+import HomeSignup from "../components/MainComps/homeSignup";
+import HomeImg from "../components/MainComps/homeImg";
 
 function Home() {
   const [userName, setUserName] = useState("");
@@ -60,9 +64,9 @@ function Home() {
   return (
     <div className="container">
       <canvas id="canvas-complex"></canvas>
+      <HomeImg />
       <h1>Code Gauntlet</h1>
       <div>
-        <img src=" " alt="logo"></img>
         <div className="container">
           <p>
             Code Gauntlet is a free interactive space to not only challenge your
@@ -70,77 +74,14 @@ function Home() {
             advantage of our features
           </p>
         </div>
+        <div className="elementsWrapper">
+          <HomeChallengeBtns />
+          <HomeSignIn />
+          <HomeSignup />
+        </div>
       </div>
-      <div>
-        <form>
-          {" "}
-          Signup
-          {/* input for sign up? */}
-          <input
-            value={setUserName}
-            onChange={handleInputChange}
-            type="text"
-            placeholder="username"
-          />
-          <input
-            value={setEmail}
-            onChange={handleInputChange}
-            type="email"
-            placeholder="email"
-          />
-          <input
-            value={setPassword}
-            onChange={handleInputChange}
-            type="password"
-            placeholder="password"
-          />
-          <button
-            className="buttonlook"
-            type="button"
-            onClick={handleFormSubmit}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
-      <div className="container">
-        <form>
-          {" "}
-          SignIn
-          {/* input for login? */}
-          <label for="userName">
-            <b>UserName</b>
-          </label>
-          <input
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-          <label for="password">
-            <b>Password</b>
-          </label>
-          <input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="button" onClick={handleSigninSubmit}>
-            SignIn
-          </button>
-        </form>
-        {errorMessage && (
-          <div>
-            <p className="er-message">{errorMessage}</p>
-          </div>
-        )}
-      </div>
+
       <div>About:Benefits to signing up, basic layout of challenges, etc</div>
-      {/* Difficulty Buttons for Navigation?? */}
-      <div>
-        <button>Select Beginner</button>
-        <button>Select Intermediate</button>
-        <button>Select Hard</button>
-      </div>
     </div>
   );
 }
