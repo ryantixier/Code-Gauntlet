@@ -1,6 +1,3 @@
-import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
-
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -13,10 +10,7 @@ import SubmissionModal from "../SubmissionModal";
 
 export default function Beginner() {
   //
-  console.log(QUERY_CHALLENGES);
-  const { loading, error, data } = useQuery(QUERY_CHALLENGES);
-  console.log("this is datum", data);
-  console.log("dis error", error);
+
   // const cardInfos = [
   //   {
   //     title: "Beginner Challenge 1",
@@ -51,8 +45,10 @@ export default function Beginner() {
         </CardContent>
         <CardContent>
           <SubmissionModal
-            title={data.challenges[0].question}
-            description={data.challenges[0].questionCode}
+            // title={data.challenges[0].question}
+            // description={data.challenges[0].questionCode}
+            title={`placeholder beginner 1 title`}
+            description={`placeholder beginner 1 description`}
           />
           {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
           {/* insert B1prop values */}

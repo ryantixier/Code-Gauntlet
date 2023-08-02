@@ -1,4 +1,6 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
 
 // import accordion from mui
 import Accordion from "@mui/material/Accordion";
@@ -11,18 +13,14 @@ import Beginner from "./ChallengeCards/Beginner";
 import Intermdiate from "./ChallengeCards/Intermediate";
 import Advanced from "./ChallengeCards/Advanced";
 
-import { InMemoryCache, ApolloClient, ApolloProvider } from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: "/graphql",
-  cache: new InMemoryCache(),
-});
-
 export default function ChallengeBody() {
   // insert menu selector here:
   // (beginner/intermediate/advanced)
+  const { loading, error, data } = useQuery(QUERY_CHALLENGES);
+  console.log("this is datum", data);
+  console.log("dis error", error);
   return (
-    <ApolloProvider client={client}>
+    <>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -66,6 +64,6 @@ export default function ChallengeBody() {
           {/* insert form for input */}
         </AccordionDetails>
       </Accordion>
-    </ApolloProvider>
+    </>
   );
 }
