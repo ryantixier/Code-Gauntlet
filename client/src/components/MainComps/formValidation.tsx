@@ -1,40 +1,12 @@
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER, ADD_USER } from "../../databaseOperations/mutations";
-import authService from "../../util/auth";
 
 const PostContactForm = async (
   values: any,
   successCallback: any,
   errorCallback: any
 ) => {
-  const [login, loginMutResponse] = useMutation(LOGIN_USER);
-  const [addUser, addUserMutResponse] = useMutation(ADD_USER);
-  //naive way to check if the signup or sign in form was used.  maybe we can pass in a string so its explicit?
-  console.log(values);
-  if (!values.fullName) {
-    const { data } = await login({
-      variables: values,
-    });
-    console.log("login response!", data);
-    if (data.login.token) {
-      authService.login(data.login.token);
-      successCallback();
-    } else errorCallback();
-  } else {
-    const { data } = await addUser({
-      variables: {
-        name: values.fullName,
-        email: values.email,
-        password: values.password,
-      },
-    });
-    console.log("sign up response!", data);
-    if (data.addUser.token) {
-      authService.login(data.addUser.token);
-      successCallback();
-    } else errorCallback();
-  }
+  if (true) successCallback();
+  else errorCallback();
 };
 
 const initialFormValues = {
