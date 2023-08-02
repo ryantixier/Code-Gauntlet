@@ -79,6 +79,7 @@ body {
 
 .flex {
   display: flex;
+  flex-direction: row;
 }
 
 .around {
@@ -86,6 +87,10 @@ body {
   justify-content: space-around;
   text-align: center;
   align-items: center;
+}
+
+.column {
+  flex-direction: column;
 }
 
 .signInForm {
@@ -104,9 +109,9 @@ body {
   margin-bottom: 15px;
 }
 
-/* .exampleButton {
-  display: flex;
-} */
+.exampleButton {
+  z-index: 12;
+}
 
 @keyframes App-logo-spin {
   from {

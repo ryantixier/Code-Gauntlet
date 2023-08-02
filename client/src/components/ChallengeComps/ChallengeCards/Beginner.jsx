@@ -1,7 +1,3 @@
-// USE FOR DB STUFFS
-// import { useQuery, useMutation } from "@apollo/client";
-// import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
-
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";

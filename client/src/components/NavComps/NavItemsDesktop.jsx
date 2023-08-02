@@ -66,42 +66,45 @@ export default function NavItemsDesktop() {
             PROFILE
           </Button>
         </Link>
-        <Link className="navLink" to="/signup">
-          <Button
-            onClick={handleSignUpDialogueOpen}
-            sx={{
-              color: "#F5F5F5",
-              display: "flex",
-              fontFamily: "Raleway",
-              marginX: "1rem",
-              fontWeight: 300,
-              maxHeight: "100px",
-              whiteSpace: "nowrap",
-              flexGrow: 1,
-              borderRadius: "20%",
-            }}
-            fullWidth={true}
-          >
-            SIGN UP
-          </Button>
-          <Dialog open={signUpDialogueOpen} onClose={handleSignUpDialogueClose}>
-            <DialogTitle>SIGN UP</DialogTitle>
-            <DialogContent>
-              <HomeSignup />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleSignUpDialogueClose}>Cancel</Button>
-              <Button
-                // type="inherit"
-                onClick={handleSignUpDialogueClose}
-                disabled={!formIsValid()}
-              >
-                {/* CHANGE button's onClick to link to db */}
-                Sign Up
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </Link>
+
+        <Button
+          onClick={handleSignUpDialogueOpen}
+          sx={{
+            color: "#F5F5F5",
+            display: "flex",
+            fontFamily: "Raleway",
+            marginX: "1rem",
+            fontWeight: 300,
+            maxHeight: "100px",
+            whiteSpace: "nowrap",
+            flexGrow: 1,
+            borderRadius: "20%",
+          }}
+          fullWidth={true}
+        >
+          SIGN UP
+        </Button>
+        <Dialog open={signUpDialogueOpen} onClose={handleSignUpDialogueClose}>
+          <DialogTitle>SIGN UP</DialogTitle>
+          <DialogContent>
+            <HomeSignup
+              buttons={
+                <DialogActions>
+                  <Button onClick={handleSignUpDialogueClose}>Cancel</Button>
+                  <Button
+                    // type="inherit"
+                    onClick={handleSignUpDialogueClose}
+                    type="submit"
+                    // disabled={!formIsValid()}
+                  >
+                    {/* CHANGE button's onClick to link to db */}
+                    Sign Up
+                  </Button>
+                </DialogActions>
+              }
+            />
+          </DialogContent>
+        </Dialog>
 
         <Button
           onClick={handleSignInDialogueOpen}
@@ -129,7 +132,7 @@ export default function NavItemsDesktop() {
             <Button onClick={handleSignInDialogueClose}>Cancel</Button>
             <Button
               // type="inherit"
-              disabled={!formIsValid()}
+              // disabled={!formIsValid()}
               onClick={handleSignInDialogueClose}
             >
               {/* CHANGE button's onClick to link to db */}
