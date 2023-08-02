@@ -7,13 +7,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //import app styles
 import "./App.css";
 
-
 //import page links
 import Nav from "./components/NavComps/NavBar";
 import Home from "./pages/Home";
 import Challenge from "./pages/Challenge";
 import Profile from "./pages/Profile";
-import Leaderboard from "./pages/Leaderboard";
 
 //system-preference-set dark mode
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -33,16 +31,16 @@ export default function App() {
           primary: {
             main: "#ebffeb",
             light: "#ffc857",
-            contrastText: '#ffc857',
+            contrastText: "#ffc857",
             dark: "#ffc857",
           },
           secondary: {
             main: "#ffc857",
-            light: '#ebffeb',
+            light: "#ebffeb",
           },
           info: {
-            main: '#68543a',
-            contrastText: '#888375',
+            main: "#68543a",
+            contrastText: "#888375",
           },
           background: {
             default: "#888375",
@@ -162,7 +160,6 @@ export default function App() {
           <Routes>
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/*" element={<Home />} />
           </Routes>
         </div>

@@ -29,7 +29,12 @@ body {
   max-width: 100%;
   padding: 10px 30px;
   background-color: #b0afaf;
-  box-shadow: 0.25em 0.25em 1em 1em #393939;
+
+  z-index: 12;
+}
+
+.footer {
+  background-color: #b0afaf;
 }
 
 .navLink,
@@ -53,11 +58,14 @@ body {
   left: 0;
   background-size: cover;
   background-position: center;
-  z-index: -12;
 }
 
-.homeCover {
-  background-image: url("./assets/images/code_gauntlet_background.png");
+.screenCover {
+  background-image: url("./assets/images/code_gauntlet_screen.png");
+  z-index: -12;
+}
+.frameCover {
+  background-image: url("./assets/images/code_gauntlet_frame.png");
 }
 
 .pageDiv {
@@ -90,6 +98,15 @@ body {
   align-self: center;
   justify-content: center;
 }
+
+.h1 {
+  font-size: 250%;
+  margin-bottom: 15px;
+}
+
+/* .exampleButton {
+  display: flex;
+} */
 
 @keyframes App-logo-spin {
   from {
