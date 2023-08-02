@@ -80,7 +80,7 @@ export const useFormControls = () => {
     const isValid =
       fieldValues.fullName &&
       fieldValues.email &&
-      fieldValues.message &&
+      fieldValues.password &&
       Object.values(errors).every((x) => x === "");
 
     return isValid;
