@@ -6,8 +6,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
-function B_SubmitDialog() {
+export default function SubmissionModal(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -20,16 +21,19 @@ function B_SubmitDialog() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
+      <ButtonGroup>
+        <Button size="small">View B1Prompt</Button>
+        {/* link button to modal for challenge prompt */}
+        <Button size="small" onClick={handleClickOpen}>
+          {/* onClick={B_SubmitDialog.handleClickOpen} */}
+          B1Submit Entry
+        </Button>
+        {/* link button to submission modal */}
+      </ButtonGroup>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Subscribe</DialogTitle>
+        <DialogTitle>{`${props.title}`}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
-          </DialogContentText>
+          <DialogContentText>{`${props.description}`}</DialogContentText>
           <TextField
             autoFocus
             margin="dense"
@@ -42,11 +46,9 @@ function B_SubmitDialog() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>Submit</Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 }
-
-export B_SubmitDialog;

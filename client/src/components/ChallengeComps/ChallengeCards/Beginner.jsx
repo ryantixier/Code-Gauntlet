@@ -1,3 +1,7 @@
+// USE FOR DB STUFFS
+// import { useQuery, useMutation } from "@apollo/client";
+// import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
+
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -10,9 +14,16 @@ import SubmissionModal from "../SubmissionModal";
 
 export default function Beginner() {
   //
+
+  // USE FOR DB STUFFS
+  // const { loading, error, data } = useQuery(QUERY_CHALLENGES);
+  // console.log("this is datum", data);
+  // console.log("dis error", error);
+  // END USE FOR DB STUFFS
+
   // const cardInfos = [
   //   {
-  //     name: "fullName",
+  //     title: "Beginner Challenge 1",
   //     label: "Full Name",
   //     id: "beginner1",
   //     type: "text",
@@ -32,22 +43,28 @@ export default function Beginner() {
   // ];
   //
   return (
+    // import useMutation and useQuery from client/apollo server
+    // import graphQL fxn QUERY_CHALLENGES to rtn all challenges
+    // iterate all challenges, organize by level
+    //
+
     <div className="center">
       <Card>
         <CardContent>
           <Typography>Welcome to the start of your journey...</Typography>
         </CardContent>
-        <CardActions>
-          <ButtonGroup>
-            <Button size="small">View B1Prompt</Button>
-            {/* link button to modal for challenge prompt */}
-            <Button size="small" onClick={SubmissionModal}>
-              {/* onClick={B_SubmitDialog.handleClickOpen} */}
-              B1Submit Entry
-            </Button>
-            {/* link button to submission modal */}
-          </ButtonGroup>
-        </CardActions>
+        <CardContent>
+          <SubmissionModal
+            // title={data.challenges[0].question}
+            // description={data.challenges[0].questionCode}
+            title={`placeholder beginner 1 title`}
+            description={`placeholder beginner 1 description`}
+          />
+          {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
+          {/* insert B1prop values */}
+          {/* insert B1prop values */}
+          {/* insert B1prop values */}
+        </CardContent>
       </Card>
       <Card>
         <CardContent>
