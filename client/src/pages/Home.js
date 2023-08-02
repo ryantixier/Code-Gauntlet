@@ -9,7 +9,7 @@ function Main() {
       {/* <canvas id="canvas-complex"></canvas> */}
       <HomeImg />
       <div className="pageDiv">
-        <div className="container">
+        <div>
           <HomeH3Motion />
           <div style={{ margin: "60px" }}></div>
           <HomeChallengeBtns />
