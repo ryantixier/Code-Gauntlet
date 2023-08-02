@@ -89,6 +89,10 @@ body {
   align-items: center;
 }
 
+.column {
+  flex-direction: column;
+}
+
 .signInForm {
   justify-content: space-evenly;
   display: flex;

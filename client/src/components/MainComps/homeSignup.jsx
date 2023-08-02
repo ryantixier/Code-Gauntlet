@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import { animate, delay, motion } from "framer-motion";
 import { useFormControls } from "./formValidation.tsx";
 
-export default function HomeSignup() {
+export default function HomeSignup({ buttons }) {
   const inputFieldValues = [
     {
       name: "fullName",
@@ -53,6 +53,7 @@ export default function HomeSignup() {
               />
             );
           })}
+          {buttons}
           {/* <Button type="submit" disabled={!formIsValid()}>
             Sign Up
           </Button> */}
