@@ -155,7 +155,7 @@ export default function App() {
   );
 
   const client = new ApolloClient({
-    uri: "/graphql",
+    uri: "http://localhost:3001/graphql", //swap back to /graphql?
     cache: new InMemoryCache(),
   });
 

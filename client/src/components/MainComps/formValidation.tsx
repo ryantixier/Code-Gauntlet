@@ -1,13 +1,5 @@
 import { useState } from "react";
-
-const PostContactForm = async (
-  values: any,
-  successCallback: any,
-  errorCallback: any
-) => {
-  if (true) successCallback();
-  else errorCallback();
-};
+import authService from "../../util/auth";
 
 const initialFormValues = {
   fullName: "",
@@ -86,12 +78,15 @@ export const useFormControls = () => {
     return isValid;
   };
 
-  const handleFormSubmit = async (e: any) => {
+  const handleFormSubmit = async (e: any, cb, name) => {
     e.preventDefault();
-    const isValid =
-      Object.values(errors).every((x) => x === "") && formIsValid();
-    if (isValid) {
-      await PostContactForm(values, handleSuccess, handleError);
+    const values = Object.fromEntries(new FormData(e.target).entries());
+    const { data } = await cb({
+      variables: values,
+    });
+    //error handling...
+    if (data[name].token) {
+      authService.login(data[name].token);
     }
   };
 

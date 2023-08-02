@@ -95,7 +95,6 @@ export default function NavItemsDesktop() {
                     // type="inherit"
                     onClick={handleSignUpDialogueClose}
                     type="submit"
-                    // disabled={!formIsValid()}
                   >
                     {/* CHANGE button's onClick to link to db */}
                     Sign Up
@@ -126,19 +125,18 @@ export default function NavItemsDesktop() {
         <Dialog open={signInDialogueOpen} onClose={handleSignInDialogueClose}>
           <DialogTitle>SIGN IN</DialogTitle>
           <DialogContent>
-            <HomeSignIn />
+            <HomeSignIn
+              buttons={
+                <DialogActions>
+                  <Button onClick={handleSignInDialogueClose}>Cancel</Button>
+                  <Button type="submit" onClick={handleSignInDialogueClose}>
+                    {/* CHANGE button's onClick to link to db */}
+                    Sign In
+                  </Button>
+                </DialogActions>
+              }
+            />
           </DialogContent>
-          <DialogActions>
-            <Button onClick={handleSignInDialogueClose}>Cancel</Button>
-            <Button
-              // type="inherit"
-              // disabled={!formIsValid()}
-              onClick={handleSignInDialogueClose}
-            >
-              {/* CHANGE button's onClick to link to db */}
-              Sign In
-            </Button>
-          </DialogActions>
         </Dialog>
       </Box>
     </div>
