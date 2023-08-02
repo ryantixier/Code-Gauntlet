@@ -15,15 +15,8 @@ const Intermediate3 = {};
 export default function Intermediate() {
   //
   return (
-    <>
+    <div className="center">
       <Card>
-        <CardMedia
-          component="img"
-          alt="Intermediate 1 Img"
-          height="140"
-          image=""
-          // insert card image path aqui
-        ></CardMedia>
         <CardContent>
           <Typography>Well Done...</Typography>
         </CardContent>
@@ -39,13 +32,6 @@ export default function Intermediate() {
         </CardActions>
       </Card>
       <Card>
-        <CardMedia
-          component="img"
-          alt="Intermediate 2 Img"
-          height="140"
-          image=""
-          // insert card image path aqui
-        ></CardMedia>
         <CardContent>
           <Typography>You've made it this far...</Typography>
         </CardContent>
@@ -61,13 +47,6 @@ export default function Intermediate() {
         </CardActions>
       </Card>
       <Card>
-        <CardMedia
-          component="img"
-          alt="Intermediate 3 Img"
-          height="140"
-          image=""
-          // insert card image path aqui
-        ></CardMedia>
         <CardContent>
           <Typography>Keep going, if you dare...</Typography>
         </CardContent>
@@ -82,6 +61,6 @@ export default function Intermediate() {
           </ButtonGroup>
         </CardActions>
       </Card>
-    </>
+    </div>
   );
 }

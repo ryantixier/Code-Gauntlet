@@ -15,7 +15,7 @@ export default function ChallengeBody() {
   // insert menu selector here:
   // (beginner/intermediate/advanced)
   return (
-    <div className="container">
+    <>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -26,7 +26,7 @@ export default function ChallengeBody() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {Beginner}
+            <Beginner />
             {/* insert form for input */}
           </Typography>
         </AccordionDetails>
@@ -41,7 +41,7 @@ export default function ChallengeBody() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            {Intermdiate}
+            <Intermdiate />
             {/* insert modal form for input */}
           </Typography>
         </AccordionDetails>
@@ -55,12 +55,10 @@ export default function ChallengeBody() {
           <Typography>Advanced</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            {Advanced}
-            {/* insert form for input */}
-          </Typography>
+          <Advanced />
+          {/* insert form for input */}
         </AccordionDetails>
       </Accordion>
-    </div>
+    </>
   );
 }
