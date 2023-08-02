@@ -35,8 +35,8 @@ export default function NavItemsDesktop() {
   const handleSignInDialogueOpen = () => setSignInDialogueOpen(true);
   const handleSignInDialogueClose = () => setSignInDialogueOpen(false);
 
-  // const { handleInputValue, handleFormSubmit, formIsValid, errors } =
-  //   useFormControls();
+  const { formIsValid } = useFormControls();
+  // const [isValid, setIsValid] = React.useState(false);
 
   return (
     <div>
@@ -108,9 +108,9 @@ export default function NavItemsDesktop() {
             <DialogActions>
               <Button onClick={handleSignUpDialogueClose}>Cancel</Button>
               <Button
-                type="inherit"
+                // type="inherit"
                 onClick={handleSignUpDialogueClose}
-                // disabled={!formIsValid()}
+                disabled={!formIsValid()}
               >
                 {/* CHANGE button's onClick to link to db */}
                 Sign Up
@@ -144,8 +144,8 @@ export default function NavItemsDesktop() {
             <DialogActions>
               <Button onClick={handleSignInDialogueClose}>Cancel</Button>
               <Button
-                type="inherit"
-                // disabled={!formIsValid()}
+                // type="inherit"
+                disabled={!formIsValid()}
                 onClick={handleSignInDialogueClose}
               >
                 {/* CHANGE button's onClick to link to db */}

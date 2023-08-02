@@ -53,9 +53,9 @@ export default function HomeSignup() {
               />
             );
           })}
-          <Button type="submit" disabled={!formIsValid()}>
+          {/* <Button type="submit" disabled={!formIsValid()}>
             Sign Up
-          </Button>
+          </Button> */}
         </form>
       </div>
     </div>
