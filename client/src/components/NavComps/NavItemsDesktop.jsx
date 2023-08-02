@@ -1,9 +1,32 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import { Link } from "react-router-dom";
 // import { animate, motion } from "framer-motion";
 
+const modalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function NavItemsDesktop() {
+  const [signUpModalOpen, setSignUpModalOpen] = React.useState(false);
+  const handleSignUpModalOpen = () => setSignUpModalOpen(true);
+  const handleSignUpModalClose = () => setSignUpModalOpen(false);
+
+  const [signInModalOpen, setSignInModalOpen] = React.useState(false);
+  const handleSignInModalOpen = () => setSignInModalOpen(true);
+  const handleSignInModalClose = () => setSignInModalOpen(false);
+
   return (
     <div>
       <Box
@@ -50,6 +73,7 @@ export default function NavItemsDesktop() {
         </Link>
         <Link className="navLink" to="/signup">
           <Button
+            onClick={handleSignUpModalOpen}
             sx={{
               color: "#F5F5F5",
               display: "flex",
@@ -65,9 +89,25 @@ export default function NavItemsDesktop() {
           >
             SIGN UP
           </Button>
+          <Modal
+            open={signUpModalOpen}
+            onClose={handleSignUpModalClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={modalStyle}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                SIGN UP
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Modal>
         </Link>
         <Link className="navLink" to="/signin">
           <Button
+            onClick={handleSignInModalOpen}
             sx={{
               color: "#F5F5F5",
               display: "flex",
@@ -83,6 +123,21 @@ export default function NavItemsDesktop() {
           >
             SIGN IN
           </Button>
+          <Modal
+            open={signInModalOpen}
+            onClose={handleSignInModalClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={modalStyle}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                SIGN IN
+              </Typography>
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Modal>
         </Link>
       </Box>
     </div>
