@@ -37,9 +37,9 @@ export default function SubmissionModal(props) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
+            id="code-block"
+            label="Paste Your Code Here"
+            type="text"
             fullWidth
             variant="standard"
           />
