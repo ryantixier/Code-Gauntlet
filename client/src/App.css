@@ -79,6 +79,7 @@ body {
 
 .flex {
   display: flex;
+  flex-direction: row;
 }
 
 .around {
@@ -104,9 +105,9 @@ body {
   margin-bottom: 15px;
 }
 
-/* .exampleButton {
-  display: flex;
-} */
+.exampleButton {
+  z-index: 12;
+}
 
 @keyframes App-logo-spin {
   from {
