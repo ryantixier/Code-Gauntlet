@@ -27,7 +27,7 @@ body {
 .toolbar {
   position: relative;
   max-width: 100%;
-  padding-left: 20px;
+  padding: 10px 30px;
   background-color: #b0afaf;
   box-shadow: 0.25em 0.25em 1em 1em #393939;
 }
@@ -67,6 +67,28 @@ body {
 
 .elementsWrapper {
   max-height: 80vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.around {
+  padding: 10px;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.signInForm {
+  justify-content: space-evenly;
+  display: flex;
+  padding: 15px;
+}
+.signInFormItem {
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {

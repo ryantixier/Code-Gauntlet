@@ -30,7 +30,7 @@ export default function NavItemsDesktop() {
             TRY A CHALLENGE
           </Button>
         </Link>
-        <Link className="navLink" to="/challenge">
+        <Link className="navLink" to="/Leaderboard">
           <Button
             sx={{
               color: "#F5F5F5",

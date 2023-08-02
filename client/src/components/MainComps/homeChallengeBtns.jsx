@@ -1,11 +1,12 @@
 import React from "react";
+import Button from "@mui/material/Button";
 
 export default function HomeChallengeBtns() {
   return (
-    <div>
-      <button>Select Beginner</button>
-      <button>Select Intermediate</button>
-      <button>Select Hard</button>
+    <div className="flex around">
+      <Button>Try Beginner</Button>
+      <Button>Try Intermediate</Button>
+      <Button>Try Hard</Button>
     </div>
   );
 }
