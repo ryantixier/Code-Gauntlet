@@ -54,7 +54,7 @@ export default function HomeSignup() {
             );
           })}
           <Button type="submit" disabled={!formIsValid()}>
-            Sign In
+            Sign Up
           </Button>
         </form>
       </div>
