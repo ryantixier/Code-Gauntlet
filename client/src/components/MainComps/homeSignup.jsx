@@ -1,90 +1,63 @@
 import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { animate, delay, motion } from "framer-motion";
+import { useFormControls } from "./formValidation.tsx";
 
 export default function HomeSignup() {
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const inputFieldValues = [
+    {
+      name: "fullName",
+      label: "Full Name",
+      id: "user-name",
+      type: "text",
+    },
+    {
+      name: "email",
+      label: "Email",
+      id: "user-email",
+      type: "text",
+    },
+    {
+      name: "password",
+      label: "Password",
+      id: "user-password",
+      type: "password",
+    },
+  ];
 
-  const validateEmail = (email) => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  };
-
-  const checkPassword = (password) => {
-    const hasUpperCase = /[A-Z]/.test(password);
-    const hasLowerCase = /[a-z]/.test(password);
-    const isLengthValid = password.length >= 8;
-    return hasUpperCase && hasLowerCase && isLengthValid;
-  };
-
-  const handleInputChange = (e) => {
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
-
-    if (inputType === "email") {
-      setEmail(inputValue);
-    } else if (inputType === "userName") {
-      setUserName(inputValue);
-    } else {
-      setPassword(inputValue);
-    }
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    if (!validateEmail(email) || !userName) {
-      setErrorMessage("Invalid username/email entered");
-      return;
-    }
-    if (!checkPassword(password)) {
-      setErrorMessage(`Make Password more secure or else 🤨: ${userName}`);
-      return;
-    }
-    alert(`signed in as ${userName}`);
-    setUserName("");
-    setPassword("");
-    setEmail("");
-  };
-
-  const handleSigninSubmit = (e) => {
-    e.preventDefault();
-
-    alert(`signed in as ${userName}`);
-    setUserName("");
-    setPassword("");
-  };
+  const { handleInputValue, handleFormSubmit, formIsValid, errors } =
+    useFormControls();
 
   return (
-    <div>
-      <form>
-        {" "}
-        Signup
-        {/* input for sign up? */}
-        <input
-          value={setUserName}
-          onChange={handleInputChange}
-          type="text"
-          placeholder="username"
-        />
-        <input
-          value={setEmail}
-          onChange={handleInputChange}
-          type="email"
-          placeholder="email"
-        />
-        <input
-          value={setPassword}
-          onChange={handleInputChange}
-          type="password"
-          placeholder="password"
-        />
-        <button className="buttonlook" type="button" onClick={handleFormSubmit}>
-          Submit
-        </button>
-      </form>
+    <div className="divWrapper">
+      <div className="signInForm center">
+        <form onSubmit={handleFormSubmit} className="contactForm">
+          {inputFieldValues.map((inputFieldValue, index) => {
+            return (
+              <TextField
+                key={index}
+                type={inputFieldValues.type}
+                onBlur={handleInputValue}
+                onChange={handleInputValue}
+                name={inputFieldValue.name}
+                label={inputFieldValue.label}
+                multiline={inputFieldValue.multiline ?? false}
+                rows={inputFieldValue.rows ?? 1}
+                autoComplete="none"
+                className="signInFormItem"
+                {...(errors[inputFieldValue.name] && {
+                  error: true,
+                  helperText: errors[inputFieldValue.name],
+                })}
+              />
+            );
+          })}
+          <Button type="submit" disabled={!formIsValid()}>
+            Sign In
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }

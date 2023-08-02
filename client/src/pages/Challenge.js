@@ -1,6 +1,6 @@
 import React from "react";
-import NavBar from "../components/NavComps/NavBar";
-import ChallengeHeader from "../components/ChallengeComps/ChallengeHeader";
+// import NavBar from "../components/NavComps/NavBar";
+// import { ChallengeHeader } from "../components/ChallengeComps/ChallengeHeader";
 import ChallengeBody from "../components/ChallengeComps/ChallengeBody";
 import { Container } from "@mui/material";
 
@@ -12,7 +12,7 @@ export default function Challenge() {
       {/* Start Sidebar */}
       {/* <NavBar /> */}
       {/* End Sidebar */}
-      {/* <ChallengeHeader />; */}
+      {/* {/* <ChallengeHeader />; */} */}
       <div className="container">
         <ChallengeBody />
       </div>
