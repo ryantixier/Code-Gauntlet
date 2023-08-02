@@ -1,6 +1,5 @@
-import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
+import { QUERY_CHALLENGES } from "../../databaseOperations/queries";
 
 // import accordion from mui
 import Accordion from "@mui/material/Accordion";
