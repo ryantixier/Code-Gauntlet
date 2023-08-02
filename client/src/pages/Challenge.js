@@ -12,7 +12,7 @@ export default function Challenge() {
       {/* <NavBar /> */}
       {/* End Sidebar */}
       {/* <ChallengeHeader />; */}
-      <ChallengeBody />;
+      <ChallengeBody />
     </>
   );
 }
