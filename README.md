@@ -2,7 +2,7 @@
 
 ## Description
 
-An interactive full-stack application to practice your coding skills, vote on best solutions, and compete with users all over the world!
+An interactive full-stack application to practice your coding skills, vote on best solutions, and compete with users all over the world! A presentation detailing this project can be found [here](https://docs.google.com/presentation/d/1kshwWwPStMbilaSLMuPVvIAC1Dxh4gseDICH1bkGcoA/edit#slide=id.g29f43f0a72_0_15).
 
 ## Table of Contents
 
