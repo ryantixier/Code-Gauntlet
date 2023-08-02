@@ -23,53 +23,49 @@ export default function ChallengeBody() {
   // (beginner/intermediate/advanced)
   return (
     <ApolloProvider client={client}>
-      <div className="container">
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography>Beginner</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              {Beginner}
-              {/* insert form for input */}
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>Intermediate</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              {Intermdiate}
-              {/* insert modal form for input */}
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
-          >
-            <Typography>Advanced</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              {Advanced}
-              {/* insert form for input */}
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </div>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Beginner</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Beginner />
+            {/* insert form for input */}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Intermediate</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <Intermdiate />
+            {/* insert modal form for input */}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Advanced</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Advanced />
+          {/* insert form for input */}
+        </AccordionDetails>
+      </Accordion>
     </ApolloProvider>
   );
 }

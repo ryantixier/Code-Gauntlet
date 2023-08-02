@@ -13,11 +13,10 @@ import SubmissionModal from "../SubmissionModal";
 
 export default function Beginner() {
   //
-
+  console.log(QUERY_CHALLENGES);
   const { loading, error, data } = useQuery(QUERY_CHALLENGES);
   console.log("this is datum", data);
   console.log("dis error", error);
-
   // const cardInfos = [
   //   {
   //     title: "Beginner Challenge 1",

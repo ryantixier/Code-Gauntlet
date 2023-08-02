@@ -160,7 +160,7 @@ export default function App() {
           <Routes>
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/*" element={<Home />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </div>
       </ThemeProvider>
