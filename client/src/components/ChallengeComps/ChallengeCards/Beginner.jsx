@@ -11,37 +11,15 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import SubmissionModal from "../SubmissionModal";
+import PromptModal from "../PromptModal";
 
 export default function Beginner() {
-  //
-
   // USE FOR DB STUFFS
   // const { loading, error, data } = useQuery(QUERY_CHALLENGES);
   // console.log("this is datum", data);
   // console.log("dis error", error);
   // END USE FOR DB STUFFS
 
-  // const cardInfos = [
-  //   {
-  //     title: "Beginner Challenge 1",
-  //     label: "Full Name",
-  //     id: "beginner1",
-  //     type: "text",
-  //   },
-  //   {
-  //     name: "email",
-  //     label: "Email",
-  //     id: "beginner2",
-  //     type: "text",
-  //   },
-  //   {
-  //     name: "password",
-  //     label: "Password",
-  //     id: "beginner3",
-  //     type: "password",
-  //   },
-  // ];
-  //
   return (
     // import useMutation and useQuery from client/apollo server
     // import graphQL fxn QUERY_CHALLENGES to rtn all challenges
@@ -52,18 +30,16 @@ export default function Beginner() {
       <Card>
         <CardContent>
           <Typography>Welcome to the start of your journey...</Typography>
-        </CardContent>
-        <CardContent>
+          <PromptModal
+            title={`Beginner Challenge 1`}
+            description={`placeholder beginner prompt 1 description`}
+          />
           <SubmissionModal
             // title={data.challenges[0].question}
             // description={data.challenges[0].questionCode}
-            title={`placeholder beginner 1 title`}
-            description={`placeholder beginner 1 description`}
+            title={`placeholder beginner submission 1 title`}
           />
           {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
-          {/* insert B1prop values */}
-          {/* insert B1prop values */}
-          {/* insert B1prop values */}
         </CardContent>
       </Card>
       <Card>
