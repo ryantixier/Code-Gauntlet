@@ -47,36 +47,38 @@ export default function HomeChallengeBtns() {
       variants={divVariants}
       initial="start"
       animate="finished"
-      className="flex around"
+      className="flex around column"
     >
-      <motion.div variants={buttonVariants}>
-        <Button
-          className="exampleButton"
-          onClick={() => setIsVisible(!isVisible)}
-        >
-          Try Beginner
-        </Button>
-      </motion.div>
+      <div className="flex">
+        <motion.div variants={buttonVariants}>
+          <Button
+            className="exampleButton"
+            onClick={() => setIsVisible(!isVisible)}
+          >
+            Try Beginner
+          </Button>
+        </motion.div>
 
-      <motion.div variants={buttonVariants}>
-        <Button
-          variants={buttonVariants}
-          className="exampleButton"
-          onClick={() => setIsVisible2(!isVisible2)}
-        >
-          Try Intermediate
-        </Button>
-      </motion.div>
+        <motion.div variants={buttonVariants}>
+          <Button
+            variants={buttonVariants}
+            className="exampleButton"
+            onClick={() => setIsVisible2(!isVisible2)}
+          >
+            Try Intermediate
+          </Button>
+        </motion.div>
 
-      <motion.div variants={buttonVariants}>
-        <Button
-          variants={buttonVariants}
-          className="exampleButton"
-          onClick={() => setIsVisible3(!isVisible3)}
-        >
-          Try Hard
-        </Button>
-      </motion.div>
+        <motion.div variants={buttonVariants}>
+          <Button
+            variants={buttonVariants}
+            className="exampleButton"
+            onClick={() => setIsVisible3(!isVisible3)}
+          >
+            Try Hard
+          </Button>
+        </motion.div>
+      </div>
 
       <div className="center flex">
         <motion.div animate={isVisible ? show : hide}>Hello</motion.div>
