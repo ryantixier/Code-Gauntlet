@@ -21,27 +21,22 @@ export default function SubmissionModal(props) {
 
   return (
     <div>
-      <ButtonGroup>
-        <Button size="small">View B1Prompt</Button>
-        {/* link button to modal for challenge prompt */}
-        <Button size="small" onClick={handleClickOpen}>
-          {/* onClick={B_SubmitDialog.handleClickOpen} */}
-          B1Submit Entry
-        </Button>
-        {/* link button to submission modal */}
-      </ButtonGroup>
+      <Button size="small" variant="outlined" onClick={handleClickOpen}>
+        {/* onClick={B_SubmitDialog.handleClickOpen} */}
+        B1 - Submit Entry
+      </Button>
+      {/* link button to submission modal */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{`${props.title}`}</DialogTitle>
-        <DialogContent>
-          <DialogContentText>{`${props.description}`}</DialogContentText>
+        <DialogContent className="center">
           <TextField
-            autoFocus
-            margin="dense"
-            id="code-block"
-            label="Paste Your Code Here"
-            type="text"
-            fullWidth
-            variant="standard"
+            id="fillled-multiline-flexible"
+            label="Paste Your Code For Submission"
+            multiline
+            minrows={4}
+            variant="filled"
+            style={{ minWidth: "100%" }}
+            // defaultValue="Default Value"
           />
         </DialogContent>
         <DialogActions>
