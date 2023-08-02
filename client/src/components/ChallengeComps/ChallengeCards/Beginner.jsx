@@ -1,7 +1,3 @@
-// USE FOR DB STUFFS
-// import { useQuery, useMutation } from "@apollo/client";
-// import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
-
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -14,12 +10,6 @@ import SubmissionModal from "../SubmissionModal";
 
 export default function Beginner() {
   //
-
-  // USE FOR DB STUFFS
-  // const { loading, error, data } = useQuery(QUERY_CHALLENGES);
-  // console.log("this is datum", data);
-  // console.log("dis error", error);
-  // END USE FOR DB STUFFS
 
   // const cardInfos = [
   //   {

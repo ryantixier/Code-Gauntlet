@@ -1,4 +1,6 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
 
 // import accordion from mui
 import Accordion from "@mui/material/Accordion";
@@ -14,6 +16,9 @@ import Advanced from "./ChallengeCards/Advanced";
 export default function ChallengeBody() {
   // insert menu selector here:
   // (beginner/intermediate/advanced)
+  const { loading, error, data } = useQuery(QUERY_CHALLENGES);
+  console.log("this is datum", data);
+  console.log("dis error", error);
   return (
     <>
       <Accordion>

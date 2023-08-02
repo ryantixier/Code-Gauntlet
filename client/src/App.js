@@ -1,6 +1,9 @@
 //react imports
 import * as React from "react";
 
+//apollo connection
+import { InMemoryCache, ApolloClient, ApolloProvider } from "@apollo/client";
+
 //nav router
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -151,19 +154,26 @@ export default function App() {
     [prefersDarkMode]
   );
 
+  const client = new ApolloClient({
+    uri: "/graphql",
+    cache: new InMemoryCache(),
+  });
+
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="container">
-          <Nav />
-          <Routes>
-            <Route path="/challenge" element={<Challenge />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/*" element={<Home />} />
-          </Routes>
-        </div>
-      </ThemeProvider>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <div className="container">
+            <Nav />
+            <Routes>
+              <Route path="/challenge" element={<Challenge />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </div>
+        </ThemeProvider>
+      </Router>
+    </ApolloProvider>
   );
 }
