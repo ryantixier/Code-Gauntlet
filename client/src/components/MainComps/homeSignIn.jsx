@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import { animate, delay, motion } from "framer-motion";
 import { useFormControls } from "./formValidation.tsx";
 
-export default function HomeSignup() {
+export default function HomeSignIn() {
   const inputFieldValues = [
     {
       name: "email",
@@ -47,9 +47,9 @@ export default function HomeSignup() {
               />
             );
           })}
-          <Button type="submit" disabled={!formIsValid()}>
+          {/* <Button type="submit" disabled={!formIsValid()}>
             Sign In
-          </Button>
+          </Button> */}
         </form>
       </div>
     </div>

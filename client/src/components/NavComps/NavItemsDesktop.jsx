@@ -1,31 +1,42 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import { Link } from "react-router-dom";
+import HomeSignup from "../MainComps/homeSignup";
+import HomeSignIn from "../MainComps/homeSignIn";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { useFormControls } from "../MainComps/formValidation.tsx";
 // import { animate, motion } from "framer-motion";
 
-const modalStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+// const DialogueStyle = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: 400,
+//   bgcolor: "background.paper",
+//   border: "2px solid #000",
+//   boxShadow: 24,
+//   p: 4,
+// };
 
 export default function NavItemsDesktop() {
-  const [signUpModalOpen, setSignUpModalOpen] = React.useState(false);
-  const handleSignUpModalOpen = () => setSignUpModalOpen(true);
-  const handleSignUpModalClose = () => setSignUpModalOpen(false);
+  const [signUpDialogueOpen, setSignUpDialogueOpen] = React.useState(false);
+  const handleSignUpDialogueOpen = () => setSignUpDialogueOpen(true);
+  const handleSignUpDialogueClose = () => setSignUpDialogueOpen(false);
 
-  const [signInModalOpen, setSignInModalOpen] = React.useState(false);
-  const handleSignInModalOpen = () => setSignInModalOpen(true);
-  const handleSignInModalClose = () => setSignInModalOpen(false);
+  const [signInDialogueOpen, setSignInDialogueOpen] = React.useState(false);
+  const handleSignInDialogueOpen = () => setSignInDialogueOpen(true);
+  const handleSignInDialogueClose = () => setSignInDialogueOpen(false);
+
+  // const { handleInputValue, handleFormSubmit, formIsValid, errors } =
+  //   useFormControls();
 
   return (
     <div>
@@ -73,7 +84,7 @@ export default function NavItemsDesktop() {
         </Link>
         <Link className="navLink" to="/signup">
           <Button
-            onClick={handleSignUpModalOpen}
+            onClick={handleSignUpDialogueOpen}
             sx={{
               color: "#F5F5F5",
               display: "flex",
@@ -89,25 +100,27 @@ export default function NavItemsDesktop() {
           >
             SIGN UP
           </Button>
-          <Modal
-            open={signUpModalOpen}
-            onClose={handleSignUpModalClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={modalStyle}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                SIGN UP
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-            </Box>
-          </Modal>
+          <Dialog open={signUpDialogueOpen} onClose={handleSignUpDialogueClose}>
+            <DialogTitle>SIGN UP</DialogTitle>
+            <DialogContent>
+              <HomeSignup />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleSignUpDialogueClose}>Cancel</Button>
+              <Button
+                type="inherit"
+                onClick={handleSignUpDialogueClose}
+                // disabled={!formIsValid()}
+              >
+                {/* CHANGE button's onClick to link to db */}
+                Sign Up
+              </Button>
+            </DialogActions>
+          </Dialog>
         </Link>
         <Link className="navLink" to="/signin">
           <Button
-            onClick={handleSignInModalOpen}
+            onClick={handleSignInDialogueOpen}
             sx={{
               color: "#F5F5F5",
               display: "flex",
@@ -123,21 +136,23 @@ export default function NavItemsDesktop() {
           >
             SIGN IN
           </Button>
-          <Modal
-            open={signInModalOpen}
-            onClose={handleSignInModalClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={modalStyle}>
-              <Typography id="modal-modal-title" variant="h6" component="h2">
-                SIGN IN
-              </Typography>
-              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-            </Box>
-          </Modal>
+          <Dialog open={signInDialogueOpen} onClose={handleSignInDialogueClose}>
+            <DialogTitle>SIGN IN</DialogTitle>
+            <DialogContent>
+              <HomeSignIn />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleSignInDialogueClose}>Cancel</Button>
+              <Button
+                type="inherit"
+                // disabled={!formIsValid()}
+                onClick={handleSignInDialogueClose}
+              >
+                {/* CHANGE button's onClick to link to db */}
+                Sign In
+              </Button>
+            </DialogActions>
+          </Dialog>
         </Link>
       </Box>
     </div>
