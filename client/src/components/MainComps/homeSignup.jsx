@@ -3,11 +3,14 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { animate, delay, motion } from "framer-motion";
 import { useFormControls } from "./formValidation.tsx";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../databaseOperations/mutations";
 
 export default function HomeSignup({ buttons }) {
+  const [addUser, addUserMutResponse] = useMutation(ADD_USER);
   const inputFieldValues = [
     {
-      name: "fullName",
+      name: "name",
       label: "Full Name",
       id: "user-name",
       type: "text",
@@ -28,11 +31,13 @@ export default function HomeSignup({ buttons }) {
 
   const { handleInputValue, handleFormSubmit, formIsValid, errors } =
     useFormControls();
-
+  function handleSignIn(e) {
+    handleFormSubmit(e, addUser, "addUser");
+  }
   return (
     <div className="divWrapper">
       <div className="signInForm center">
-        <form onSubmit={handleFormSubmit} className="contactForm">
+        <form onSubmit={handleSignIn} className="contactForm">
           {inputFieldValues.map((inputFieldValue, index) => {
             return (
               <TextField
