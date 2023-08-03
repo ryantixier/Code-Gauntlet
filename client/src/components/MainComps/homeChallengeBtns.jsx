@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { animate, delay, motion } from "framer-motion";
 
 export default function HomeChallengeBtns() {
@@ -16,6 +17,9 @@ export default function HomeChallengeBtns() {
     opacity: 0,
     transitionEnd: {
       display: "none",
+    },
+    transition: {
+      duration: 0,
     },
   };
 
@@ -35,10 +39,6 @@ export default function HomeChallengeBtns() {
     start: { opacity: 0 },
     finished: {
       opacity: 1,
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-      },
     },
   };
 
@@ -53,17 +53,25 @@ export default function HomeChallengeBtns() {
         <motion.div variants={buttonVariants}>
           <Button
             className="exampleButton"
-            onClick={() => setIsVisible(!isVisible)}
+            onClick={() => {
+              setIsVisible2(false);
+              setIsVisible3(false);
+              setIsVisible(!isVisible);
+            }}
           >
             Try Beginner
           </Button>
         </motion.div>
 
-        <motion.div variants={buttonVariants}>
+        <motion.div className="divSpacing" variants={buttonVariants}>
           <Button
             variants={buttonVariants}
             className="exampleButton"
-            onClick={() => setIsVisible2(!isVisible2)}
+            onClick={() => {
+              setIsVisible(false);
+              setIsVisible3(false);
+              setIsVisible2(!isVisible2);
+            }}
           >
             Try Intermediate
           </Button>
@@ -73,17 +81,63 @@ export default function HomeChallengeBtns() {
           <Button
             variants={buttonVariants}
             className="exampleButton"
-            onClick={() => setIsVisible3(!isVisible3)}
+            onClick={() => {
+              setIsVisible2(false);
+              setIsVisible(false);
+              setIsVisible3(!isVisible3);
+            }}
           >
             Try Hard
           </Button>
         </motion.div>
       </div>
 
-      <div className="center flex">
-        <motion.div animate={isVisible ? show : hide}>Hello</motion.div>
-        <motion.div animate={isVisible2 ? show : hide}>World</motion.div>
-        <motion.div animate={isVisible3 ? show : hide}>!</motion.div>
+      <div className="around flex">
+        <motion.div className="z12" animate={isVisible ? show : hide}>
+          <pre>
+            <code>
+              {`// TODO: Rewrite the following Event Listener using arrow functions
+
+const toggleElements = document.querySelectorAll(".toggle");
+toggleElements.forEach(function () {
+  el.addEventListener("click", function () {
+    this.classList.toggle("active");
+  });
+});`}
+            </code>
+          </pre>
+          {/* <ContentCopyIcon
+            onClick={() => {
+              navigator.clipboard.writeText(this.textToCopy);
+            }}
+          ></ContentCopyIcon> */}
+        </motion.div>
+        <motion.div animate={isVisible2 ? show : hide}>
+          <pre>
+            <code>
+              {`// TODO: Finish the function below so the the string "is passed" is successfully written to testFile.json
+
+const fs = require("fs");
+
+const JSONToFile = (obj, filename) =>
+  // Your code here
+
+  JSONToFile({ test: "is passed" }, "testFile");
+`}
+            </code>
+          </pre>
+        </motion.div>
+        <motion.div animate={isVisible3 ? show : hide}>
+          <pre>
+            <code>
+              {`// TODO: Complete the function so that the first six digits of the Fibonacci sequence (0, 1, 1, 2, 3, 5) are returned
+
+const fibonacci = (n) => {
+  // Your code here
+};`}
+            </code>
+          </pre>
+        </motion.div>
       </div>
     </motion.div>
   );
