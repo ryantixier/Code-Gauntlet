@@ -81,6 +81,11 @@ body {
   width: 400px;
 }
 
+#modal-code {
+  font-size: small;
+  white-space: pre-wrap;
+}
+
 .flex {
   display: flex;
   flex-direction: row;
