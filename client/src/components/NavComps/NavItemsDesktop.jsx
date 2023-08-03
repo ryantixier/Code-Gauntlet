@@ -9,6 +9,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useFormControls } from "../MainComps/formValidation.tsx";
+import authService from "../../util/auth";
 // import { animate, motion } from "framer-motion";
 
 export default function NavItemsDesktop() {
@@ -48,25 +49,28 @@ export default function NavItemsDesktop() {
             TRY A CHALLENGE
           </Button>
         </Link>
-        <Link className="navLink" to="/Profile">
-          <Button
-            sx={{
-              color: "#F5F5F5",
-              display: "flex",
-              fontFamily: "Raleway",
-              marginX: "1rem",
-              fontWeight: 300,
-              maxHeight: "100px",
-              whiteSpace: "nowrap",
-              flexGrow: 1,
-              borderRadius: "20%",
-            }}
-            fullWidth={true}
-          >
-            PROFILE
-          </Button>
-        </Link>
-
+        {authService.loggedIn() ? (
+          <Link className="navLink" to="/Profile">
+            <Button
+              sx={{
+                color: "#F5F5F5",
+                display: "flex",
+                fontFamily: "Raleway",
+                marginX: "1rem",
+                fontWeight: 300,
+                maxHeight: "100px",
+                whiteSpace: "nowrap",
+                flexGrow: 1,
+                borderRadius: "20%",
+              }}
+              fullWidth={true}
+            >
+              PROFILE
+            </Button>
+          </Link>
+        ) : (
+          <></>
+        )}
         <Button
           onClick={handleSignUpDialogueOpen}
           sx={{
