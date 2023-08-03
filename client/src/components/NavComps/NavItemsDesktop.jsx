@@ -71,77 +71,114 @@ export default function NavItemsDesktop() {
         ) : (
           <></>
         )}
-        <Button
-          onClick={handleSignUpDialogueOpen}
-          sx={{
-            color: "#46130B",
-            display: "flex",
-            fontFamily: "Raleway",
-            marginX: "1rem",
-            fontWeight: 300,
-            maxHeight: "100px",
-            whiteSpace: "nowrap",
-            flexGrow: 1,
-            borderRadius: "20%",
-          }}
-          fullWidth={true}
-        >
-          SIGN UP
-        </Button>
-        <Dialog open={signUpDialogueOpen} onClose={handleSignUpDialogueClose}>
-          <DialogTitle>SIGN UP</DialogTitle>
-          <DialogContent>
-            <HomeSignup
-              buttons={
-                <DialogActions>
-                  <Button onClick={handleSignUpDialogueClose}>Cancel</Button>
-                  <Button
-                    // type="inherit"
-                    onClick={handleSignUpDialogueClose}
-                    type="submit"
-                  >
-                    {/* CHANGE button's onClick to link to db */}
-                    Sign Up
-                  </Button>
-                </DialogActions>
-              }
-            />
-          </DialogContent>
-        </Dialog>
+        {/*  */}
+        {/*  */}
+        {/*  */}
+        {authService.loggedIn() ? (
+          <>
+            <Button
+              onClick={authService.logout}
+              sx={{
+                color: "#46130B",
+                display: "flex",
+                fontFamily: "Raleway",
+                marginX: "1rem",
+                fontWeight: 300,
+                maxHeight: "100px",
+                whiteSpace: "nowrap",
+                flexGrow: 1,
+                borderRadius: "20%",
+              }}
+              fullWidth={true}
+            >
+              Log Out
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              onClick={handleSignUpDialogueOpen}
+              sx={{
+                color: "#46130B",
+                display: "flex",
+                fontFamily: "Raleway",
+                marginX: "1rem",
+                fontWeight: 300,
+                maxHeight: "100px",
+                whiteSpace: "nowrap",
+                flexGrow: 1,
+                borderRadius: "20%",
+              }}
+              fullWidth={true}
+            >
+              SIGN UP
+            </Button>
+            <Dialog
+              open={signUpDialogueOpen}
+              onClose={handleSignUpDialogueClose}
+            >
+              <DialogTitle>SIGN UP</DialogTitle>
+              <DialogContent>
+                <HomeSignup
+                  buttons={
+                    <DialogActions>
+                      <Button onClick={handleSignUpDialogueClose}>
+                        Cancel
+                      </Button>
+                      <Button
+                        // type="inherit"
+                        onClick={handleSignUpDialogueClose}
+                        type="submit"
+                      >
+                        {/* CHANGE button's onClick to link to db */}
+                        Sign Up
+                      </Button>
+                    </DialogActions>
+                  }
+                />
+              </DialogContent>
+            </Dialog>
 
-        <Button
-          onClick={handleSignInDialogueOpen}
-          sx={{
-            color: "#46130B",
-            display: "flex",
-            fontFamily: "Raleway",
-            marginX: "1rem",
-            fontWeight: 300,
-            maxHeight: "100px",
-            whiteSpace: "nowrap",
-            flexGrow: 1,
-            borderRadius: "20%",
-          }}
-          fullWidth={true}
-        >
-          SIGN IN
-        </Button>
-        <Dialog open={signInDialogueOpen} onClose={handleSignInDialogueClose}>
-          <DialogTitle>SIGN IN</DialogTitle>
-          <DialogContent>
-            <HomeSignIn
-              buttons={
-                <DialogActions>
-                  <Button onClick={handleSignInDialogueClose}>Cancel</Button>
-                  <Button type="submit" onClick={handleSignInDialogueClose}>
-                    {/* CHANGE button's onClick to link to db */}
-                    Sign In
-                  </Button>
-                </DialogActions>
-              }
-            />
-          </DialogContent>
-        </Dialog>
+            <Button
+              onClick={handleSignInDialogueOpen}
+              sx={{
+                color: "#46130B",
+                display: "flex",
+                fontFamily: "Raleway",
+                marginX: "1rem",
+                fontWeight: 300,
+                maxHeight: "100px",
+                whiteSpace: "nowrap",
+                flexGrow: 1,
+                borderRadius: "20%",
+              }}
+              fullWidth={true}
+            >
+              SIGN IN
+            </Button>
+            <Dialog
+              open={signInDialogueOpen}
+              onClose={handleSignInDialogueClose}
+            >
+              <DialogTitle>SIGN IN</DialogTitle>
+              <DialogContent>
+                <HomeSignIn
+                  buttons={
+                    <DialogActions>
+                      <Button onClick={handleSignInDialogueClose}>
+                        Cancel
+                      </Button>
+                      <Button type="submit" onClick={handleSignInDialogueClose}>
+                        {/* CHANGE button's onClick to link to db */}
+                        Sign In
+                      </Button>
+                    </DialogActions>
+                  }
+                />
+              </DialogContent>
+            </Dialog>
+          </>
+        )}
       </Box>
     </div>
   );
