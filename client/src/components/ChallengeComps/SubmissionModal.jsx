@@ -7,6 +7,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import { useMutation } from "@apollo/client";
+import { addSubmission } from "../../databaseOperations/mutations";
 
 export default function SubmissionModal(props) {
   const [open, setOpen] = React.useState(false);
