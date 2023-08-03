@@ -1,18 +1,21 @@
 import * as React from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
+
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+// import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import SubmissionModal from "../SubmissionModal";
 import PromptModal from "../PromptModal";
 
 export default function Beginner() {
   // USE FOR DB STUFFS
-  // const { loading, error, data } = useQuery(QUERY_CHALLENGES);
-  // console.log("this is datum", data);
+  const { loading, error, data } = useQuery(QUERY_CHALLENGES);
+  console.log("this is datum", data);
   // console.log("dis error", error);
   // END USE FOR DB STUFFS
 
@@ -27,8 +30,8 @@ export default function Beginner() {
         <CardContent>
           <Typography>Welcome to the start of your journey...</Typography>
           <PromptModal
-            title={`Beginner Challenge 1`}
-            description={`placeholder beginner prompt 1 description`}
+            title={data.challenges[0].question}
+            description={data.challenges[0].questionCode}
           />
           <SubmissionModal
             // title={data.challenges[0].question}
