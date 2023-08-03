@@ -77,6 +77,10 @@ body {
   max-height: 80vh;
 }
 
+.submission-modal {
+  width: 400px;
+}
+
 .flex {
   display: flex;
   flex-direction: row;
