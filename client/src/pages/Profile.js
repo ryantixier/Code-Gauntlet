@@ -4,9 +4,6 @@ import authService from "../util/auth";
 import HomeSignIn from "../components/MainComps/homeSignIn";
 
 export default function Profile() {
-  if (!authService.loggedIn()) {
-    return <HomeSignIn />;
-  }
   const profile = authService.getUser().data;
   return (
     <div>
