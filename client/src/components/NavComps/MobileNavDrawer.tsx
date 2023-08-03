@@ -56,7 +56,7 @@ function NavDrawerMobile() {
       onClick={toggleDrawer(true)}
       onKeyDown={toggleDrawer(true)}
     >
-      <Link to="/challenge" className="mobileLink">
+      <Link to="/challenge">
         <Button
           onClick={() => setOpenDrawer(false)}
           sx={{
@@ -76,7 +76,7 @@ function NavDrawerMobile() {
         </Button>
       </Link>
 
-      <Link to="/profile" className="mobileLink">
+      <Link to="/Profile">
         <Button
           onClick={() => setOpenDrawer(false)}
           sx={{

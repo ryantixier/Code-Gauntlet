@@ -27,7 +27,7 @@ export default function NavItemsDesktop() {
     <div>
       <Box
         sx={{
-          display: { xs: "none", lg: "flex" },
+          display: { xs: "none", md: "flex" },
           textAlign: "center",
         }}
       >
@@ -74,7 +74,7 @@ export default function NavItemsDesktop() {
         <Button
           onClick={handleSignUpDialogueOpen}
           sx={{
-            color: "#F5F5F5",
+            color: "#46130B",
             display: "flex",
             fontFamily: "Raleway",
             marginX: "1rem",
@@ -112,7 +112,7 @@ export default function NavItemsDesktop() {
         <Button
           onClick={handleSignInDialogueOpen}
           sx={{
-            color: "#F5F5F5",
+            color: "#46130B",
             display: "flex",
             fontFamily: "Raleway",
             marginX: "1rem",
