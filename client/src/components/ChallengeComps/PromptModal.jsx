@@ -28,7 +28,7 @@ export default function PromptModal(props) {
   return (
     <div>
       <Button size="small" variant="outlined" onClick={handleClickOpen}>
-        B1 - View Prompt
+        View Prompt
       </Button>
       {/* link button to modal for challenge prompt */}
       {/* link button to submission modal */}

@@ -23,7 +23,7 @@ export default function SubmissionModal(props) {
     <div>
       <Button size="small" variant="outlined" onClick={handleClickOpen}>
         {/* onClick={B_SubmitDialog.handleClickOpen} */}
-        B1 - Submit Entry
+        Submit Entry
       </Button>
       {/* link button to submission modal */}
       <Dialog open={open} onClose={handleClose}>
