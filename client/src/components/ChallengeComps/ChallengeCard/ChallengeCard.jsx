@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import SubmissionModal from "../SubmissionModal";
 import PromptModal from "../PromptModal";
 
+import authService from "../../../util/auth";
+
 export default function ChallengeCard({ challenges, platitudes }) {
   return (
     <div className="center">
@@ -18,7 +20,15 @@ export default function ChallengeCard({ challenges, platitudes }) {
                 title={challenge.question}
                 description={challenge.questionCode}
               />
-              <SubmissionModal title={challenge.question} />
+              {authService.loggedIn() ? (
+                <SubmissionModal
+                  title={challenge.question}
+                  challengeId={challenge._id}
+                  authService={authService}
+                />
+              ) : (
+                <></>
+              )}
             </CardContent>
           </Card>
         );

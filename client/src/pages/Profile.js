@@ -1,7 +1,6 @@
 import { Sidebar, Menu } from "react-pro-sidebar";
 import "../styles/Profile.css";
 import authService from "../util/auth";
-import HomeSignIn from "../components/MainComps/homeSignIn";
 
 export default function Profile() {
   const profile = authService.getUser().data;

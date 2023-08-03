@@ -77,7 +77,7 @@ export default function ChallengeBody() {
             <Typography>
               <ChallengeCard
                 challenges={beginnerChallenges}
-                platitudes={beginnerPlatitudes}
+                platitudes={intermediatePlatitudes}
               />
             </Typography>
           </AccordionDetails>
@@ -93,7 +93,7 @@ export default function ChallengeBody() {
           <AccordionDetails>
             <ChallengeCard
               challenges={beginnerChallenges}
-              platitudes={beginnerPlatitudes}
+              platitudes={advancedPlatitudes}
             />
           </AccordionDetails>
         </Accordion>
