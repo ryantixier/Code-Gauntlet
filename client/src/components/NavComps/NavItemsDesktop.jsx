@@ -50,7 +50,7 @@ export default function NavItemsDesktop() {
           </Button>
         </Link>
         {authService.loggedIn() ? (
-          <Link className="navLink" to="/Profile">
+          <Link className="navLink" to="/profile">
             <Button
               sx={{
                 color: "#F5F5F5",

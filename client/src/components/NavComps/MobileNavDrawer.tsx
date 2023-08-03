@@ -76,7 +76,7 @@ function NavDrawerMobile() {
         </Button>
       </Link>
 
-      <Link to="/Profile">
+      <Link to="/profile">
         <Button
           onClick={() => setOpenDrawer(false)}
           sx={{
