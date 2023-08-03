@@ -34,11 +34,11 @@ export default function SubmissionModal({ title, challengeId, authService }) {
             response: submissionText.value,
           },
         });
-        setOpen(true);
       } catch (err) {
         console.log(err);
       }
     }
+    handleClose();
   };
 
   return (

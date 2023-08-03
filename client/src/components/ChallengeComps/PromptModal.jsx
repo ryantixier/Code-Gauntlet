@@ -35,12 +35,10 @@ export default function PromptModal(props) {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{`${props.title}`}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            <pre>
-              <code>{`${props.description}`}</code>
-              {/* add copy code button here */}
-            </pre>
-          </DialogContentText>
+          <pre>
+            <code id="modal-code">{`${props.description}`}</code>
+            {/* add copy code button here */}
+          </pre>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCopy}>Copy Code</Button>
