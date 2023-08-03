@@ -51,7 +51,7 @@ const typeDefs = gql`
     addSubmission(
       challengeId: ID!
       submitterId: ID!
-      responseRepoLink: String!
+      responseRepoLink: String
       response: String!
     ): Challenge
     removeSubmission(challengeId: ID!, submissionId: ID!): Challenge

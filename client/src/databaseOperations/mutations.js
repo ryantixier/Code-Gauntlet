@@ -28,7 +28,7 @@ export const ADD_SUBMISSION = gql`
   mutation addSubmission(
     $challengeId: ID!
     $submitterId: ID!
-    $responseRepoLink: String!
+    $responseRepoLink: String
     $response: String!
   ) {
     addSubmission(
