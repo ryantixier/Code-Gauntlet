@@ -1,5 +1,5 @@
 import decode from "jwt-decode";
-
+//This would also be more secure if cookies were utilized...
 class AuthService {
   getUser() {
     return decode(localStorage.getItem("id_token"));
