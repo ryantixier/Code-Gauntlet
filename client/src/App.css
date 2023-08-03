@@ -108,6 +108,10 @@ body {
   justify-content: center;
 }
 
+.z12 {
+  z-index: 12;
+}
+
 .h1 {
   font-size: 250%;
   margin-bottom: 15px;
@@ -115,6 +119,11 @@ body {
 
 .exampleButton {
   z-index: 12;
+}
+
+.divSpacing {
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 @keyframes App-logo-spin {
