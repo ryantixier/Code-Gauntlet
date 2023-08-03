@@ -6,6 +6,7 @@ import AppBar from "@mui/material/AppBar";
 // import NavItemsMobile from "./navMobileMotionComponents/navItemsMobile";
 import NavLogo from "./NavLogo";
 import NavItemsDesktop from "./NavItemsDesktop";
+import NavItemsMobile from "./NavItemsMobile";
 // import LogoFadeMobile from "./navMobileMotionComponents/logoFadeMobile";
 
 function ResponsiveAppBar() {
@@ -26,7 +27,8 @@ function ResponsiveAppBar() {
           {/* <LogoFadeMobile /> */}
 
           <NavItemsDesktop />
-          {/* <NavItemsMobile /> */}
+          <NavItemsMobile />
+          {/* <Footer /> */}
         </Box>
       </Toolbar>
     </AppBar>

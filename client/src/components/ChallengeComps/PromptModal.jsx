@@ -6,7 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import Snackbar from "@mui/material/Snackbar";
 
 export default function PromptModal(props) {
   const [open, setOpen] = React.useState(false);
@@ -19,10 +19,16 @@ export default function PromptModal(props) {
     setOpen(false);
   };
 
+  const [copy, setCopy] = React.useState(false);
+  const handleCopy = () => {
+    setCopy(true);
+    navigator.clipboard.writeText(`${props.description}`);
+  };
+
   return (
     <div>
       <Button size="small" variant="outlined" onClick={handleClickOpen}>
-        B1 - View Prompt
+        View Prompt
       </Button>
       {/* link button to modal for challenge prompt */}
       {/* link button to submission modal */}
@@ -37,6 +43,13 @@ export default function PromptModal(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleCopy}>Copy Code</Button>
+          <Snackbar
+            open={copy}
+            onClose={() => setCopy(false)}
+            autoHideDuration={3000}
+            message="Code copied to clipboard!"
+          />
           <Button onClick={handleClose}>Got it!</Button>
         </DialogActions>
       </Dialog>
