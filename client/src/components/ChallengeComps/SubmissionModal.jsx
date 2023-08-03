@@ -30,10 +30,11 @@ export default function SubmissionModal(props) {
         <DialogTitle>{`${props.title}`}</DialogTitle>
         <DialogContent className="center">
           <TextField
-            id="fillled-multiline-flexible"
+            className="submission-modal"
+            id="filled-multiline-static"
             label="Paste Your Code For Submission"
             multiline
-            minrows={4}
+            rows={6}
             variant="filled"
             style={{ minWidth: "100%" }}
             // defaultValue="Default Value"

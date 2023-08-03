@@ -26,51 +26,63 @@ export default function Beginner() {
     //
 
     <div className="center">
-      <Card>
-        <CardContent>
-          <Typography>Welcome to the start of your journey...</Typography>
-          <PromptModal
-            title={data.challenges[0].question}
-            description={data.challenges[0].questionCode}
-          />
-          <SubmissionModal
-            // title={data.challenges[0].question}
-            // description={data.challenges[0].questionCode}
-            title={`placeholder beginner submission 1 title`}
-          />
-          {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
-        </CardContent>
-      </Card>
-      <Card>
-        <CardContent>
-          <Typography>The path ahead is treacherous...</Typography>
-        </CardContent>
-        <CardActions>
-          <ButtonGroup>
-            <Button size="small">View B2 Prompt</Button>
-            {/* link button to modal for challenge prompt */}
-            <Button size="small" href={SubmissionModal}>
-              B2Submit Entry
-            </Button>
-            {/* link button to modal for challenge prompt */}
-          </ButtonGroup>
-        </CardActions>
-      </Card>
-      <Card>
-        <CardContent>
-          <Typography>Do you have what it takes?</Typography>
-        </CardContent>
-        <CardActions>
-          <ButtonGroup>
-            <Button size="small">View B3Prompt</Button>
-            {/* link button to modal for challenge prompt */}
-            <Button size="small" href={SubmissionModal}>
-              B3Submit Entry
-            </Button>
-            {/* link button to modal for challenge prompt */}
-          </ButtonGroup>
-        </CardActions>
-      </Card>
+      {!loading ? (
+        <Card>
+          <CardContent>
+            <Typography>Welcome to the start of your journey...</Typography>
+            <PromptModal
+              title={data.challenges[0].question}
+              description={data.challenges[0].questionCode}
+            />
+            <SubmissionModal
+              // title={data.challenges[0].question}
+              // description={data.challenges[0].questionCode}
+              title={data.challenges[0].question}
+            />
+            {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
+      {!loading ? (
+        <Card>
+          <CardContent>
+            <Typography>The path ahead is treacherous...</Typography>
+            <PromptModal
+              title={data.challenges[1].question}
+              description={data.challenges[1].questionCode}
+            />
+            <SubmissionModal
+              // title={data.challenges[0].question}
+              // description={data.challenges[0].questionCode}
+              title={data.challenges[1].question}
+            />
+            {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
+      {!loading ? (
+        <Card>
+          <CardContent>
+            <Typography>Do you have what it takes?</Typography>
+            <PromptModal
+              title={data.challenges[2].question}
+              description={data.challenges[2].questionCode}
+            />
+            <SubmissionModal
+              // title={data.challenges[0].question}
+              // description={data.challenges[0].questionCode}
+              title={data.challenges[2].question}
+            />
+            {/* THIS CONTENT TEXT WILL REFLECT THE DB's B1 CHALLENGE DESCRIPTION - PLS CHANGE */}
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
