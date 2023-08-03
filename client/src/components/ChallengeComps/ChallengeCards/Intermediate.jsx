@@ -1,66 +1,61 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import { useQuery } from "@apollo/client";
+import { QUERY_CHALLENGES } from "../../../databaseOperations/queries";
+
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import SubmissionModal from "../SubmissionModal";
+import PromptModal from "../PromptModal";
 
-const Intermediate1 = {};
-const Intermediate2 = {};
-const Intermediate3 = {};
+export default function Beginner() {
+  const { loading, error, data } = useQuery(QUERY_CHALLENGES);
+  console.log("this is datum", data);
 
-export default function Intermediate() {
-  //
   return (
     <div className="center">
-      <Card>
-        <CardContent>
-          <Typography>Well Done...</Typography>
-        </CardContent>
-        <CardActions>
-          <ButtonGroup>
-            <Button size="small">View Prompt</Button>
-            {/* link button to modal for challenge prompt */}
-            <Button size="small" href={SubmissionModal}>
-              Submit Entry
-            </Button>
-            {/* link button to submission modal */}
-          </ButtonGroup>
-        </CardActions>
-      </Card>
-      <Card>
-        <CardContent>
-          <Typography>You've made it this far...</Typography>
-        </CardContent>
-        <CardActions>
-          <ButtonGroup>
-            <Button size="small">View Prompt</Button>
-            {/* link button to modal for challenge prompt */}
-            <Button size="small" href={SubmissionModal}>
-              Submit Entry
-            </Button>
-            {/* link button to modal for challenge prompt */}
-          </ButtonGroup>
-        </CardActions>
-      </Card>
-      <Card>
-        <CardContent>
-          <Typography>Keep going, if you dare...</Typography>
-        </CardContent>
-        <CardActions>
-          <ButtonGroup>
-            <Button size="small">View Prompt</Button>
-            {/* link button to modal for challenge prompt */}
-            <Button size="small" href={SubmissionModal}>
-              Submit Entry
-            </Button>
-            {/* link button to modal for challenge prompt */}
-          </ButtonGroup>
-        </CardActions>
-      </Card>
+      {!loading ? (
+        <Card>
+          <CardContent>
+            <Typography>Very Well Done...</Typography>
+            <PromptModal
+              title={data.challenges[3].question}
+              description={data.challenges[3].questionCode}
+            />
+            <SubmissionModal title={data.challenges[3].question} />
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
+      {!loading ? (
+        <Card>
+          <CardContent>
+            <Typography>You've made it this far...</Typography>
+            <PromptModal
+              title={data.challenges[4].question}
+              description={data.challenges[4].questionCode}
+            />
+            <SubmissionModal title={data.challenges[4].question} />
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
+      {!loading ? (
+        <Card>
+          <CardContent>
+            <Typography>Keep going, if you dare...</Typography>
+            <PromptModal
+              title={data.challenges[6].question}
+              description={data.challenges[6].questionCode}
+            />
+            <SubmissionModal title={data.challenges[6].question} />
+          </CardContent>
+        </Card>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
